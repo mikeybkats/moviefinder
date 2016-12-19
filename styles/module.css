@@ -1,109 +1,13 @@
-/*.site-header {
-  background: #FFEAAA;
-}
-
-.heading-group-h1 {
-  float: left;
-  padding: 1 0 .2em 1em;
-
-}
-
-.icon-menu  {
-  padding-top: 7px;
-  font-size: 2em;
-  float: left;
-
-
-
-}
-
-.main-nav  {
-  padding: 0.1em;
-  height: 50px;
-  background-color: lightgrey;
-  border-bottom: 3px solid darkblue;
-
-
-}
-.main-nav a {
-color: white;
-
-}
-
-
-
-.main-nav ul {
-  display: none;
-  padding: 0;
-  list-style: none;
-  clear: both;
-
-}
-
-.main-nav:hover ul {
-  display: block;
-height: 10px;
-}
-
-
-.main-nav ul li {
-  margin: 0;
-  font-size: 1.5em;
-  padding: .5em .5em;
-
-
-}
-
-
-.main-nav li:first-child {
-  padding: 1em .5em  ;
-}
-
-.template {
-  display: none;
-}
-
-#topMovie{
-
-}
-
-@media only screen and (min-width: 640px) {
-  .icon-menu {
-    display: none;
-
-  }
-
-  .main-nav {
-    padding: .2em .2em .2em 2em;
-height: 55px;
-  }
-
-  .main-nav ul {
-    display: block;
-
-  }
-
-  .main-nav ul li {
-    display: inline;
-
-  }
-
-  .main-nav ul li:hover a {
-    color: #29506D;
-  }
-
-}*/
-
 
 .icon-menu {
-  font-size: 3em;
+  font-size: 2em;
   float: left;
 
 }
 
 .main-nav {
   padding: 0.1em;
-
+background-color: rgba(213, 209, 209, 0.15);
 }
 
 .main-nav ul {
@@ -125,7 +29,7 @@ height: 55px;
   margin-right: .4em;
   font-size: 1.5em;
   padding: .5em .2em;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid blue;
 }
 
 @media only screen and (min-width: 640px) {
@@ -135,13 +39,13 @@ height: 55px;
 
   .main-nav {
     padding: .2em .2em .2em 2em;
-    background-color: gray;
+
     height: 45px;
     border-bottom: 3px solid blue;
   }
 
   .main-nav  a {
-    color:white;
+    color:black;
   }
   .main-nav ul {
     display: block;
