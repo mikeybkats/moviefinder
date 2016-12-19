@@ -17,7 +17,6 @@ Movie.prototype.genre = function(){
     //  if (my genre_ids === moviesPlaying.allMovies)
     //}
   // movie.genre_name = moviesGenres.allGenres.name
-
 };
 
 function Genre(opts){
