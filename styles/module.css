@@ -51,7 +51,21 @@
 #topMovie{
 
 }
+#topMoviesList {
+  min-height: 300px;
+  width: 100%;
+  background-color: grey;
+}
+footer div {
+  display: block;
+  background-color: grey;
+  border-top: 2px solid darkblue;
+  border-bottom: 2px solid darkblue;
 
+}
+.middle {
+  text-align: center;
+}
 @media only screen and (min-width: 640px) {
   .icon-menu {
     display: none;
