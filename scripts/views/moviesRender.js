@@ -6,7 +6,7 @@
     moviesPlaying.allMovies.forEach(function(cur, indx, array){
       moviesTitles.push(cur.title);
       $('#main-content').empty().append(moviesTitles);
-      console.log(cur.title);
+      // console.log(cur.title);
     });
 
   };
