@@ -31,9 +31,8 @@
   display: block;
 }
 
-.main-nav li {
+.main-nav ul li {
   margin: 0;
-
   font-size: 1.5em;
   padding: .5em .5em;
   border-bottom: 2px solid black;
@@ -42,39 +41,16 @@
 
 
 .main-nav li:first-child {
-
   padding: 1em 0em .5em 0em ;
-
-}
-#filters {
-  padding: 0;
-  list-style: none;
 }
 
 .template {
   display: none;
 }
 
-.byline {
-  color: #777;
-}
-
-.byline a {
-  font-weight: bold;
-  text-decoration: none;
-}
-
-#article-export label {
-  font-size: .8em;
-  font-style: italic;
-  color: #ccc;
-}
-
 #topMovie{
 
 }
-
-
 
 @media only screen and (min-width: 640px) {
   .icon-menu {
@@ -91,7 +67,7 @@
 
   .main-nav ul li {
     display: inline;
-    border-bottom: none;
+
   }
 
   .main-nav ul li:hover a {
