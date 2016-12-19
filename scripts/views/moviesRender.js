@@ -11,6 +11,6 @@
 
   };
 
-  moviesPlaying.moviesQuery(moviesViewObject.renderMovies);
+  Movie.fetchAll(moviesViewObject.renderMovies);
   module.moviesViewObject = moviesViewObject;
 })(window);

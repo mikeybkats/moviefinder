@@ -1,9 +1,19 @@
-(function(module){
+function Movie(opts){
+  this.poster_path = opts.poster_path;
+  this.overview = opts.overview;
+  this.release_date = opts.release_date;
+  this.genre_ids = opts.genre_ids;
+  this.id = opts.id;
+  this.title = opts.title;
+  this.popularity = opts.popularity;
+  this.vote_count = opts.vote_count;
+  this.vote_average = opts.vote_average;
+};
 
-  moviesPlaying = {};
-  moviesPlaying.allMovies = [];
+moviesPlaying = {};
+moviesPlaying.allMovies = [];
 
-  moviesPlaying.moviesQuery = function (callback){
+Movie.fetchAll = function (callback){
     $.ajax({
       async: true,
       crossDomain: true,
@@ -14,7 +24,7 @@
       success: function(data, string, xhr){
 
         data.results.forEach(function(obj){
-          moviesPlaying.allMovies.push(obj);
+          moviesPlaying.allMovies.push(new Movie(obj));
         });
 
         console.log(data);
@@ -22,5 +32,4 @@
         callback();
       }
     });
-  }
-})(window);
+};
