@@ -38,9 +38,8 @@
   }
 
 #banner{
-  background: url("assets/rogue_one.png");
+  background-image: url("assets/rogue_one.png");
   height: 200px;
   width: 100%;
-border: 2px solid yellow;
-
+  border: 2px solid yellow;
 }
