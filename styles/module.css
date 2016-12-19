@@ -34,7 +34,6 @@ background-color: rgba(213, 209, 209, 0.15);
 #topMoviesList {
   min-height: 300px;
   width: 100%;
-  background-color: grey;
 }
 footer div {
   display: block;
