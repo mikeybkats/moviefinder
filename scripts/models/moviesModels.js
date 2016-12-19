@@ -43,9 +43,6 @@ Movie.fetchAll = function (callback){
         data.results.forEach(function(obj){
           moviesPlaying.allMovies.push(new Movie(obj));
         });
-
-        console.log(data);
-        console.log(moviesPlaying.allMovies);
         callback();
       }
     });
@@ -57,13 +54,10 @@ Movie.fetchAll = function (callback){
       headers: {},
       data: {},
       success: function(data, string, xhr){
-        console.log(data);
 
         data.genres.forEach(function(obj){
           moviesGenres.allGenres.push(new Genre(obj));
         });
-
-        console.log(moviesGenres.allGenres);
         callback();
       }
     });
