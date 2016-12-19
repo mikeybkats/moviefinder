@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<head>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/base.css">
@@ -10,6 +10,12 @@
     <link rel="stylesheet" href="styles/module.css">
     <link rel="stylesheet" href="vendor/styles/default.css">
     <link rel="stylesheet" href="vendor/styles/normalize.css">
+
+    <script id="movieTemplate" type="text/x-handlebars-template">
+      <h2>{{title}}</h2>
+      <h4>vote average: {{vote_average}} / 10</h4>
+      <p>{{overview}}</p>
+    </script>
 
   </head>
 
@@ -39,7 +45,13 @@
     <script src="moviedatabasetoken.js "></script>
     <script src="scripts/models/moviesModels.js "></script>
     <script src="scripts/views/moviesRender.js "></script>
+    
+    <script src="vendor/scripts/handlebars-v4.0.5.js"></script>
 
+    <script src="moviedatabasetoken.js"></script>
+    <script src="scripts/models/moviesModels.js"></script>
+    <script src="scripts/views/moviesRender.js"></script>
+      
   </body>
 
 </html>
