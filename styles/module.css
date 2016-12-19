@@ -1,23 +1,13 @@
-.site-header {
-  background: #FFEAAA;
-}
-
-.heading-group-h1 {
-  float: left;
-  padding: 1 0 .2em 1em;
-}
 
 .icon-menu {
-  padding-top: 7px;
   font-size: 2em;
   float: left;
+
 }
 
 .main-nav {
   padding: 0.1em;
-  height: 50px;
-  background-color: lightgrey;
-  border-bottom: 3px solid darkblue;
+background-color: rgba(213, 209, 209, 0.15);
 }
 
 .main-nav ul {
@@ -26,30 +16,20 @@
   list-style: none;
   clear: both;
 }
+.main-nav  a {
+  color:black;
+}
+
 
 .main-nav:hover ul {
   display: block;
 }
 
-.main-nav ul li {
-  margin: 0;
+.main-nav li {
+  margin-right: .4em;
   font-size: 1.5em;
-  padding: .5em .5em;
-  border-bottom: 2px solid black;
-
-}
-
-
-.main-nav li:first-child {
-  padding: 1em 0em .5em 0em ;
-}
-
-.template {
-  display: none;
-}
-
-#topMovie{
-
+  padding: .5em .2em;
+  border-bottom: 1px solid blue;
 }
 #topMoviesList {
   min-height: 300px;
@@ -73,15 +53,22 @@ footer div {
 
   .main-nav {
     padding: .2em .2em .2em 2em;
+
+    height: 45px;
+    border-bottom: 3px solid blue;
   }
 
+  .main-nav  a {
+    color:black;
+  }
   .main-nav ul {
     display: block;
+
   }
 
   .main-nav ul li {
     display: inline;
-
+    border-bottom: none;
   }
 
   .main-nav ul li:hover a {
