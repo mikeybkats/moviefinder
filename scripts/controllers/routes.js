@@ -1,12 +1,19 @@
 page ('/', homeController.reveal);
 
 console.log('lualalala');
-page('/movie/:hello', function(ctx, next){
-  console.log('ctx.params', ctx.params);
-  next();
-}, function(ctx, next){
-  console.log('nope');
+
+page('/lulwat/:hello', function(ctx, nxt){
+  console.log('ctx', ctx);
+  nxt();
 });
+
+
+// page('/movie/:hello', function(ctx, next){
+//   console.log('ctx.params', ctx.params);
+//   next();
+// }, function(ctx, next){
+//   console.log('nope');
+// });
 
 // console.log('page', page)
 // // console.log('lsdkfjlsdkfj');
