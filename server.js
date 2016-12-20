@@ -1,15 +1,25 @@
-var express = require('express'),
-  requestProxy = require('express-request-proxy'),
-  port = process.env.PORT || 3000,
-  app = express();
+require('dotenv').load();
 
-app.use(express.static('./'));
+var express = require('express');
+var requestProxy = require('express-request-proxy');
 
-app.get('*', function(request, response) {
-  console.log('New request:', request.url);
-  response.sendFile('index.html', { root: '.' });
+var app = express();
+
+app.get('/movieapi/*', function(req, res){
+  var url = 'https://api.themoviedb.org/3/' + req.params[0];
+  req.query.api_key = process.env.MOVIE_FINDER_TOKEN;
+
+  // console.log('url', url);
+  // console.log('req.params', req.params);
+  // console.log('req.query', req.query);
+  requestProxy({
+    url: url,
+    query: req.query,
+  })(req, res);
 });
 
-app.listen(port, function() {
-  console.log('Server started on port ' + port + '!');
+app.use(express.static(__dirname + '/'));
+
+var server = app.listen(process.env.PORT , function () {
+  console.log('App now running on port', process.env.PORT);
 });
