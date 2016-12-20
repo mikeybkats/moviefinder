@@ -12,6 +12,6 @@
     var $templateScript = $('#movieListTemplate').html();
     var moviesCompiler = Handlebars.compile($templateScript);
     return moviesCompiler(this);
-  }
+  };
 
 })(window);

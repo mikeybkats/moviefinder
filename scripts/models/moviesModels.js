@@ -24,50 +24,50 @@ function Genre(opts){
 
 function appendMoviesSelection(){
   moviesPlaying.allMovies.forEach(function(movieObj) {
-  $('#movie-data').append(movieObj.detailToHtml());
+    $('#movie-data').append(movieObj.detailToHtml());
   });
 };
 
 function appendMoviesList(){
   moviesPlaying.allMovies.forEach(function(movieObj){
-  $('#topMoviesList').append(movieObj.listToHtml());
+    $('#topMoviesList').append(movieObj.listToHtml());
   });
 };
 
 Movie.fetchAll = function (callback){
-    $.ajax({
-      async: true,
-      crossDomain: true,
-      url:'https://api.themoviedb.org/3/' + 'movie/now_playing' + '?api_key='+DATABASE_TOKEN,
-      method: 'GET',
-      headers: {},
-      data: {},
-      success: function(data, string, xhr){
+  $.ajax({
+    async: true,
+    crossDomain: true,
+    url:'https://api.themoviedb.org/3/' + 'movie/now_playing' + '?api_key='+DATABASE_TOKEN,
+    method: 'GET',
+    headers: {},
+    data: {},
+    success: function(data, string, xhr){
 
-        data.results.forEach(function(obj){
-          moviesPlaying.allMovies.push(new Movie(obj));
-        });
+      data.results.forEach(function(obj){
+        moviesPlaying.allMovies.push(new Movie(obj));
+      });
 
-        appendMoviesList();
-        appendMoviesSelection();
-        callback();
-      }
-    });
+      appendMoviesList();
+      appendMoviesSelection();
 
-    $.ajax({
-      async: true,
-      crossDomain: true,
-      url: 'https://api.themoviedb.org/3/' + 'genre/movie/list' + '?api_key='+DATABASE_TOKEN,
-      method: 'GET',
-      headers: {},
-      data: {},
-      success: function(data, string, xhr){
+    }
+  });
 
-        data.genres.forEach(function(obj){
-          moviesGenres.allGenres.push(new Genre(obj));
-        });
-        callback();
-      }
-    });
+  $.ajax({
+    async: true,
+    crossDomain: true,
+    url: 'https://api.themoviedb.org/3/' + 'genre/movie/list' + '?api_key='+DATABASE_TOKEN,
+    method: 'GET',
+    headers: {},
+    data: {},
+    success: function(data, string, xhr){
+
+      data.genres.forEach(function(obj){
+        moviesGenres.allGenres.push(new Genre(obj));
+      });
+
+    }
+  });
 
 };
