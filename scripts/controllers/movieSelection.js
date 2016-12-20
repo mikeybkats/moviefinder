@@ -1,15 +1,9 @@
-// (function(module){
-//   var movieSelection = {};
-//
-// function movieSelection.reveal() {
-//   $('#main-content').children().hide();
-//   $('#
-// }
-//
-//
-//
-//
-//
-//
-//
-// })(window);
+ (function(module){
+
+
+function reveal() {
+  $(this).show;
+  $(this).siblings().hide();
+}
+
+ })(window);
