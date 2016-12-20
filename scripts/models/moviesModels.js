@@ -8,7 +8,7 @@ function Movie(opts){
   this.vote_count = opts.vote_count;
   this.vote_average = opts.vote_average;
   this.genre_ids = opts.genre_ids[0];
-  this.movieImage = 'http://image.tmdb.org/t/p/w500'+ opts.backdrop_path;
+  this.movieImage = 'http://image.tmdb.org/t/p/w500' + opts.backdrop_path;
 };
 
 function Genre(opts){
@@ -27,7 +27,6 @@ function appendMoviesSelection(){
     $('#movies-detail').append(movieObj.detailToHtml());
   });
 };
-
 
 moviesPlaying = {};
 moviesPlaying.allMovies = [];
