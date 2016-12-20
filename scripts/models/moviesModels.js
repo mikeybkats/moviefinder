@@ -16,17 +16,18 @@ function Genre(opts){
   this.id = opts.id;
 };
 
-function appendMoviesSelection(){
-  moviesPlaying.allMovies.forEach(function(movieObj) {
-    $('#individual-movie-data').append(movieObj.detailToHtml());
+function appendMoviesList(){
+  moviesPlaying.allMovies.forEach(function(movieObj){
+    $('#movies-list').append(movieObj.listToHtml());
   });
 };
 
-function appendMoviesList(){
-  moviesPlaying.allMovies.forEach(function(movieObj){
-    $('#individual-movie-data').append(movieObj.listToHtml());
+function appendMoviesSelection(){
+  moviesPlaying.allMovies.forEach(function(movieObj) {
+    $('#movies-detail').append(movieObj.detailToHtml());
   });
 };
+
 
 moviesPlaying = {};
 moviesPlaying.allMovies = [];
@@ -41,12 +42,19 @@ Movie.fetchAll = function (callback){
     url:'/movieapi/movie/now_playing' ,
     method: 'GET',
     success: function(data, string, xhr){
-    console.log('/genre/movie/now_playing success', data);
-    appendMoviesList();
-    appendMoviesSelection();
-    movieListRender();
-    showListRender();
-    callback();
+      console.log('/genre/movie/now_playing success', data);
+
+      if (data){
+        data.results.forEach(function(obj){
+          moviesPlaying.allMovies.push(new Movie(obj));
+        });
+      }
+      console.log(moviesPlaying.allMovies);
+      appendMoviesList();
+      appendMoviesSelection();
+      movieListRender();
+      showListRender();
+      // callback();
     }
   });
 
@@ -62,7 +70,7 @@ Movie.fetchAll = function (callback){
           moviesGenres.allGenres.push(new Genre(obj));
         });
       }
-      callback();
+      // callback();
     }
   });
 };

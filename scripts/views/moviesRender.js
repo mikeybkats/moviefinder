@@ -3,5 +3,4 @@
 
   Movie.fetchAll();
   module.moviesViewObject = moviesViewObject;
-
 })(window);
