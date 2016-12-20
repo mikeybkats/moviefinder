@@ -37,16 +37,10 @@ Movie.fetchAll = function (callback){
   $.ajax({
     async: true,
     crossDomain: true,
-    url:'https://api.themoviedb.org/3/' + 'movie/now_playing' + '?api_key=' + DATABASE_TOKEN,
+    url:'/movieapi/movie/now_playing' ,
     method: 'GET',
-    headers: {},
-    data: {},
     success: function(data, string, xhr){
-
-      data.results.forEach(function(obj){
-        moviesPlaying.allMovies.push(new Movie(obj));
-      });
-
+      console.log('/genre/movie/now_playing success', data);
       appendMoviesList();
       appendMoviesSelection();
       callback();
@@ -56,15 +50,15 @@ Movie.fetchAll = function (callback){
   $.ajax({
     async: true,
     crossDomain: true,
-    url: 'https://api.themoviedb.org/3/' + 'genre/movie/list' + '?api_key=' + DATABASE_TOKEN,
+    url: '/movieapi/genre/movie/list',
     method: 'GET',
-    headers: {},
-    data: {},
     success: function(data, string, xhr){
-
-      data.genres.forEach(function(obj){
-        moviesGenres.allGenres.push(new Genre(obj));
-      });
+      console.log('/genre/movie/list success', data);
+      if ( data && data.genres ){
+        data.genres.forEach(function(obj){
+          moviesGenres.allGenres.push(new Genre(obj));
+        });
+      }
       callback();
     }
   });
