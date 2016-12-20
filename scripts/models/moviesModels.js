@@ -1,5 +1,11 @@
+moviesPlaying = {};
+moviesPlaying.allMovies = [];
+moviesGenres = {};
+moviesGenres.allGenres = [];
+
 function Movie(opts){
   this.poster_path = opts.poster_path;
+  this.backdrop_path = opts.backdrop_path;
   this.overview = opts.overview;
   this.release_date = opts.release_date;
   this.id = opts.id;
@@ -8,6 +14,7 @@ function Movie(opts){
   this.vote_count = opts.vote_count;
   this.vote_average = opts.vote_average;
   this.genre_ids = opts.genre_ids;
+  this.movieImage = 'http://image.tmdb.org/t/p/w500'+ opts.backdrop_path;
 };
 
 function Genre(opts){
@@ -26,12 +33,6 @@ function appendMoviesList(){
   $('#topMoviesList').append(movieObj.listToHtml());
   });
 };
-
-moviesPlaying = {};
-moviesPlaying.allMovies = [];
-
-moviesGenres = {};
-moviesGenres.allGenres = [];
 
 Movie.fetchAll = function (callback){
     $.ajax({
