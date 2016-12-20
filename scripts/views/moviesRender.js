@@ -1,9 +1,6 @@
 (function(module){
   var moviesViewObject = {};
-  var moviesTitles = [];
 
-  moviesViewObject.renderMovies = function(){};
-
-  Movie.fetchAll(moviesViewObject.renderMovies);
+  Movie.fetchAll();
   module.moviesViewObject = moviesViewObject;
 })(window);
