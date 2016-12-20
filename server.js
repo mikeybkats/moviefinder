@@ -5,15 +5,12 @@ var express = require('express'),
 
 var proxyMovieDb = function(request, response) {
   console.log('Routing MovieDb request for', request.params[0]);
-  $.ajax({
-    async: true,
-    crossDomain: true,
-    url:'https://api.themoviedb.org/3/' + 'movie/now_playing' + '?api_key=' + DATABASE_TOKEN,
-    method: 'GET',
-    headers: {},
-    data: {}
-  })(data, string, xhr);
+  (requestProxy({
+    url: 'https://api.themoviedb.org/3/' + '?api_key= ' + process.env.DATABASE_TOKEN
+  }))(request, response);
 };
+
+app.get('/themoviedb/*', proxyMovieDb);
 
 app.use(express.static('./'));
 
