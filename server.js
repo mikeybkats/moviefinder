@@ -1,23 +1,25 @@
-var express = require('express'),
-  requestProxy = require('express-request-proxy'),
-  path = require('path'),
-  bodyParser = require('body-parser');
+require('dotenv').load();
+
+var express = require('express');
+var requestProxy = require('express-request-proxy');
 
 var app = express();
+
+app.get('/movieapi/*', function(req, res){
+  var url = 'https://api.themoviedb.org/3/' + req.params[0];
+  req.query.api_key = process.env.MOVIE_FINDER_TOKEN;
+
+  // console.log('url', url);
+  // console.log('req.params', req.params);
+  // console.log('req.query', req.query);
+  requestProxy({
+    url: url,
+    query: req.query,
+  })(req, res);
+});
+
 app.use(express.static(__dirname + '/'));
-app.use(bodyParser.json());
 
-// var proxyMovieDb = function(request, response) {
-//   console.log('Routing MovieDb request for', request.params[0]);
-//   (requestProxy({
-//     url: 'https://api.themoviedb.org/3/' + '?api_key= ' + process.env.DATABASE_TOKEN
-//   }))(request, response);
-// };
-//
-// app.get('/themoviedb/*', proxyMovieDb);
-
-// Initialize the app.
-var server = app.listen(process.env.PORT || 8080, function () {
-  var port = server.address().port;
-  console.log('App now running on port', port);
+var server = app.listen(process.env.PORT , function () {
+  console.log('App now running on port', process.env.PORT);
 });
