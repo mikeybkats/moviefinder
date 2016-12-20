@@ -11,7 +11,7 @@
   Movie.prototype.listToHtml = function(){
     var $templateScript = $('#movieListTemplate').html();
     var moviesCompiler = Handlebars.compile($templateScript);
-    return moviesCompiler(this);  
+    return moviesCompiler(this);
   }
 
 })(window);

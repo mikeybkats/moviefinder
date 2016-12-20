@@ -17,13 +17,13 @@ function Genre(opts){
 
 function appendMoviesSelection(){
   moviesPlaying.allMovies.forEach(function(movieObj) {
-  $('#individual-movie-data').append(movieObj.detailToHtml());
+  $('#movie-data').append(movieObj.detailToHtml());
   });
 };
 
 function appendMoviesList(){
   moviesPlaying.allMovies.forEach(function(movieObj){
-  $('#individual-movie-data').append(movieObj.listToHtml());
+  $('#topMoviesList').append(movieObj.listToHtml());
   });
 };
 
