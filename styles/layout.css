@@ -5,7 +5,9 @@
 .pull-right {
   float: right;
 }
-
+.middle {
+  margin: auto 0;
+}
 .clearfix::after {
   content: "";
   display: table;
@@ -20,7 +22,7 @@
   width: 90%;
   margin: .2em 5%;
 }
-#banner{
+#topMovieBanner{
   background-image: url("../assets/rogue_one.png");
   min-height: 200px;
   background-size: cover;
@@ -31,7 +33,7 @@
     float: none;
   }
 
-  #banner{
+  #topMovieBanner{
     background-image: url("../assets/rogue_one.png");
     height: 300px;
     margin: auto 0;
