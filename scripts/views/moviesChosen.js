@@ -1,20 +1,17 @@
 (function(module){
-  //var movieChosen = {};
-  //
-  // Movie.renderIndividualMovie = function(movie) {
-  //   $('#individual-movie-data').append(movie.toHtml);
-  // };
 
-  Movie.prototype.toHtml = function(){
+  Movie.prototype.detailToHtml = function(){
     var $templateScript = $('#movieTemplate').html();
+    // console.log('$templateScript', $templateScript);
     var moviesCompiler = Handlebars.compile($templateScript);
     return moviesCompiler(this);
-    console.log(this);
+    // console.log(this);
   };
 
-  // $('#individual-movie-data').append(moviesPlaying.allMovies[0].toHtml('#movieTemplate'));
+  Movie.prototype.listToHtml = function(){
+    var $templateScript = $('#movieListTemplate').html();
+    var moviesCompiler = Handlebars.compile($templateScript);
+    return moviesCompiler(this);  
+  }
 
-  moviesPlaying.allMovies.forEach(function(movieObj) {
-    $('#individual-movie-data').append(movieObj.toHtml());
-  });
 })(window);

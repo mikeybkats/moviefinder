@@ -10,18 +10,21 @@ function Movie(opts){
   this.genre_ids = opts.genre_ids;
 };
 
-Movie.prototype.genre = function(){
-  // finds if there is match between the genre_ids in the movie versus
-  // the moviesGenre.allGenres array
-    // function(){
-    //  if (my genre_ids === moviesPlaying.allMovies)
-    //}
-  // movie.genre_name = moviesGenres.allGenres.name
-};
-
 function Genre(opts){
   this.name = opts.name;
   this.id = opts.id;
+};
+
+function appendMoviesSelection(){
+  moviesPlaying.allMovies.forEach(function(movieObj) {
+  $('#individual-movie-data').append(movieObj.detailToHtml());
+  });
+};
+
+function appendMoviesList(){
+  moviesPlaying.allMovies.forEach(function(movieObj){
+  $('#individual-movie-data').append(movieObj.listToHtml());
+  });
 };
 
 moviesPlaying = {};
@@ -43,9 +46,13 @@ Movie.fetchAll = function (callback){
         data.results.forEach(function(obj){
           moviesPlaying.allMovies.push(new Movie(obj));
         });
+
+        appendMoviesList();
+        appendMoviesSelection();
         callback();
       }
     });
+
     $.ajax({
       async: true,
       crossDomain: true,
