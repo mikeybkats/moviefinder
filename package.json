@@ -1,16 +1,19 @@
 {
-  "name":"blog-app",
-  "version":"1.0.0",
-  "description":"mvc for the win",
-  "Dependencies":{
-    "express":"^4.14.0"
+  "name": "moviefinder-app",
+  "version": "1.0.0",
+  "description": "mvc for the win",
+  "Dependencies": {
+    "express": "^4.14.0"
   },
-  "devDependencies":{},
-  "script":{
-    "test":"echo\"Error: no test specified\" && exit 1",
-    "start":"node server.js"
+  "devDependencies": {},
+  "script": {
+    "test": "echo\"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "author":"us@codefellows.com",
-  "license":"MIT"
+  "author": "us@codefellows.com",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0",
+    "express-request-proxy": "^2.0.0"
+  }
 }
-
