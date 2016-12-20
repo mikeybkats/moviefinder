@@ -4,7 +4,11 @@
   float: left;
 
 }
-
+#logo{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
 .main-nav {
   padding: 0.1em;
 background-color: rgba(213, 209, 209, 0.15);
