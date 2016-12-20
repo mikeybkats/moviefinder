@@ -24,12 +24,14 @@ function Genre(opts){
 
 function appendMoviesSelection(){
   moviesPlaying.allMovies.forEach(function(movieObj) {
+
     $('#movie-data').append(movieObj.detailToHtml());
   });
 };
 
 function appendMoviesList(){
   moviesPlaying.allMovies.forEach(function(movieObj){
+
     $('#topMoviesList').append(movieObj.listToHtml());
   });
 };
@@ -70,4 +72,10 @@ Movie.fetchAll = function (callback){
     }
   });
 
+      data.genres.forEach(function(obj){
+        moviesGenres.allGenres.push(new Genre(obj));
+      });
+      callback();
+    }
+  });
 };
