@@ -13,8 +13,8 @@ function Movie(opts){
   this.popularity = opts.popularity;
   this.vote_count = opts.vote_count;
   this.vote_average = opts.vote_average;
-  this.genre_ids = opts.genre_ids;
-  this.movieImage = 'http://image.tmdb.org/t/p/w500'+ opts.backdrop_path;
+  this.genre_ids = opts.genre_ids[0];
+  this.movieImage = 'http://image.tmdb.org/t/p/w500'+ opts.backdrop_path; 
 };
 
 function Genre(opts){
@@ -50,7 +50,7 @@ Movie.fetchAll = function (callback){
 
       appendMoviesList();
       appendMoviesSelection();
-
+      movieListRender();
     }
   });
 
