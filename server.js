@@ -3,6 +3,18 @@ var express = require('express'),
   port = process.env.PORT || 3000,
   app = express();
 
+var proxyMovieDb = function(request, response) {
+  console.log('Routing MovieDb request for', request.params[0]);
+  $.ajax({
+    async: true,
+    crossDomain: true,
+    url:'https://api.themoviedb.org/3/' + 'movie/now_playing' + '?api_key=' + DATABASE_TOKEN,
+    method: 'GET',
+    headers: {},
+    data: {}
+  })(data, string, xhr);
+};
+
 app.use(express.static('./'));
 
 app.get('*', function(request, response) {
