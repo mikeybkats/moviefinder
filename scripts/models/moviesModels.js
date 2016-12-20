@@ -28,7 +28,6 @@ function appendMoviesSelection(){
   });
 };
 
-
 moviesPlaying = {};
 moviesPlaying.allMovies = [];
 
