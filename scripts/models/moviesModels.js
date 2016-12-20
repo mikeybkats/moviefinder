@@ -54,7 +54,7 @@ Movie.fetchAll = function (callback){
     method: 'GET',
     success: function(data, string, xhr){
       console.log('/genre/movie/list success', data);
-      if ( data && data.genres ){
+      if ( data && data.genres){
         data.genres.forEach(function(obj){
           moviesGenres.allGenres.push(new Genre(obj));
         });
