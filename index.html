@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="vendor/styles/normalize.css">
     <link rel="stylesheet" href="styles/style-m.css">
     <script id="movieTemplate" type="text/x-handlebars-template">
-      <div class="moviesDiv">
+      <div class={{id}} "moviesDiv">
         <div class="movie-image" style="background: url('{{movieImage}}') 100% 100% / cover no-repeat border-box" ></div>
         <h2>{{title}}</h2>
         <h4>vote average: {{vote_average}} / 10</h4>
@@ -21,8 +21,8 @@
     </script>
 
     <script id="movieListTemplate" type="text/x-handlebars-template">
-      <div class="movieListDiv">
-        <h4><a href="" id="moviePageLink" class="movie-title">{{title}}</a></h4>
+      <div class={{id}} "movieListDiv">
+        <h4><a href={{path}} id="moviePageLink" class="movie-title">{{title}}</a></h4>
       </div>
     </script>
 
@@ -72,14 +72,15 @@
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
     <script src="vendor/scripts/jquery-2.1.4.js "></script>
     <script src="vendor/scripts/handlebars.js "></script>
-    <script src="moviedatabasetoken.js "></script>
+    <script src="vendor/scripts/page.js "></script>
+    <!-- <script src="moviedatabasetoken.js "></script> -->
     <script src="scripts/models/moviesModels.js "></script>
     <script src="scripts/views/moviesRender.js "></script>
-
     <script src="scripts/views/moviesChosen.js "></script>
-    <!-- <script src="scripts/controllers/routes.js "></script>
-    <script src="scripts/controllers/movie-selection.js "></script>
-    <script src="scripts/controllers/routes.js "></script> -->
+    <script src="scripts/controllers/movieSelectionController.js "></script>
+    <script src="scripts/controllers/homeController.js "></script>
+    <script src="scripts/controllers/aboutController.js "></script>
+    <script src="scripts/controllers/routes.js "></script>
 
 
 
