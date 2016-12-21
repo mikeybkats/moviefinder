@@ -25,24 +25,56 @@ function Genre(opts){
   this.id = opts.id;
 };
 
-Movie.sendToJson = function(){
-  // check if localStorage exists
-  if (localStorage.getItem('allMoviesData')){
-    localStorage.clear();
-  };
-
-  // stringify and store the data in local storage.
-  var movieJsonData = JSON.stringify(moviesPlaying.allMovies);
-  // setting json movies in local storage
-  localStorage.setItem('allMoviesData', movieJsonData);
-};
-
-Movie.createTable = function(){
-  // creates an empty sql table
-};
-
 Movie.prototype.insertRecord = function() {
-  // insert the object into the sql table
+  webDB.execute(
+    [{
+      'sql': 'INSERT INTO articles (poster path, overview, release_date, database id, title, popularity, vote count, vote average, genre ids, movie image, path, context title) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);',
+      'data': [
+        this.poster_path,
+        this.overview,
+        this.release_date,
+        this.id,
+        this.title,
+        this.popularity,
+        this.vote_count,
+        this.vote_average,
+        this.genre_ids,
+        this.movieImage,
+        this.path,
+        this.contextTitle
+      ]
+    }]
+  );
+};
+
+Movie.sendToJson = function(data){
+  var movieJSONData = JSON.stringify(data);
+  console.log(movieJSONData);
+
+  responseData.forEach(function(obj) {
+    var movie = new Movie(obj);
+    movie.insertRecord();
+  });
+    //
+    // webDB.execute(
+    //     'SELECT * FROM articles',
+    //         function(rows) {
+    //           Article.loadAll(rows);
+    //           nextFunction();
+    //         });
+
+};
+
+Movie.createTableFromLocalStorage = function(){
+  // creates an empty sql table
+    // get data from local storage
+  var data = function(){
+    data = localStorage.getItem('allMoviesData');
+    data = JSON.parse(data);
+    return data;
+  };
+  data();
+  return data;
 };
 
 Movie.fetchAll = function (callback){
@@ -52,26 +84,22 @@ Movie.fetchAll = function (callback){
     url:'/movieapi/movie/now_playing' ,
     method: 'GET',
     success: function(data, string, xhr){
-      // console.log('/genre/movie/now_playing success', data);
-      //console.log('/genre/movie/now_playing success', data);
+
+      Movie.sendToJson(data.results);
 
       if (data){
         data.results.forEach(function(obj){
           moviesPlaying.allMovies.push(new Movie(obj));
         });
       }
-      // console.log(moviesPlaying.allMovies);
+
       sortMoviesTopRating();
-      //console.log(moviesPlaying.allMovies);
       appendMoviesList();
       appendMoviesSelection();
       movieListRender();
       showListRender();
       topMovieBanner();
       // callback();
-
-      Movie.sendToJson();
-
     }
   });
 
