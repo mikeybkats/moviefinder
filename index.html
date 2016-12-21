@@ -13,21 +13,26 @@
     <link rel="stylesheet" href="styles/style-m.css">
     <link rel="stylesheet" type="text/css" href="styles/animate.css">
     <script id="movieTemplate" type="text/x-handlebars-template">
-        <div class="moviesDiv">
-            <div class="movie-image" style="background: url('{{movieImage}}') 100% 100% / cover no-repeat border-box"></div>
-            <h2>{{title}}</h2>
-            <h4>vote average: {{vote_average}} / 10</h4>
-            <p>{{overview}}</p>
+      <div id={{contextTitle}} class="moviesDiv">
+        <div class="movie-image" style="background: url('{{movieImage}}') 100% 100% / cover no-repeat border-box" ></div>
+        <div class="movieTextContent">
+          <h2>{{title}}</h2>
+          <h4>Movie Finder Score: {{vote_average}} / 10</h4>
+          <p>{{overview}}</p>
         </div>
     </script>
 
     <script id="movieListTemplate" type="text/x-handlebars-template">
-        <div class="movieListDiv">
-            <h4><a href="" id="moviePageLink" class="movie-title">{{title}}</a></h4>
-        </div>
+      <ul>
+        {{#each data}}
+        <li>
+          <a href="{{path}}" id="moviePageLink" class="movie-title">
+            {{indexValue}} {{title}}</a>
+        </li>
+        {{/each}}
+      </ul>
     </script>
-
-</head>
+  </head>
 
 <body>
     <header class="site-header clearfix">
@@ -44,13 +49,24 @@
     </header>
 
     <section id="main-content">
-        <div id="topMovie" data-content="numOne">
-            <div id="topMovieBanner"></div>
-            <div id="banner"></div>
-            <div id="movies-list"></div>
-            <div id="movies-detail"></div>
-            <button id='showFullList'>show all top movies</button>
+      
+      <div id="topMovie" data-content="numOne">
+        <div id="topMovieBanner">
+          <div class="topBannerHeader">
+            <h1>The COOLEST MOOOVIE</h1>
         </div>
+      </div>
+        
+      <div id="banner"></div>
+      
+      <div>
+        <div class="movieTitleDiv">
+          <h2>The Top Movies</h2>
+        </div> 
+        <div id="movies-list"></div>
+        <div class="buttonDiv"><button id='showFullList'>show all top movies</button></div>
+      </div>
+        
     </section>
 
     <section id="about" class="tab-content">
@@ -101,14 +117,17 @@
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
-    <script src="vendor/scripts/jquery-2.1.4.js "></script>
-    <script src="vendor/scripts/handlebars.js "></script>
-    <script src="scripts/models/moviesModels.js "></script>
-    <script src="scripts/views/moviesRender.js "></script>
-    <script src="scripts/views/moviesListViews.js "></script>
-    <script src="scripts/controllers/routes.js "></script>
-    <script src="scripts/controllers/movieSelection.js "></script>
-    <script src="scripts/models/aboutUs.js"></script>
+
+    <script src="/vendor/scripts/jquery-2.1.4.js "></script>
+    <script src="/vendor/scripts/handlebars.js "></script>
+    <script src="/vendor/scripts/page.js "></script>
+    <script src="/scripts/models/moviesModels.js "></script>
+    <script src="/scripts/views/movieslistviews.js "></script>
+    <script src="/scripts/views/moviesRender.js "></script>
+    <script src="/scripts/controllers/movieSelectionController.js "></script>
+    <script src="/scripts/controllers/homeController.js "></script>
+    <script src="/scripts/controllers/aboutController.js "></script>
+    <script src="/scripts/controllers/routes.js "></script>
 
 </body>
 

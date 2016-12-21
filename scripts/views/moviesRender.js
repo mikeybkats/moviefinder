@@ -14,7 +14,8 @@ function appendMoviesList(){
   Movie.moviesWithNumbers = moviesPlaying.allMovies.map(function(movieObj, index){
     return {
       indexValue: index+1,
-      title: movieObj.title
+      title: movieObj.title,
+      path: movieObj.path
     };
   });
 
@@ -33,5 +34,7 @@ function sortMoviesTopRating(){
     return parseFloat(b.vote_average) - parseFloat(a.vote_average);
   });
 };
-
+function topMovieBanner() {
+  $('#topMovieBanner').css('background-image', 'url(' + moviesPlaying.allMovies[0].movieImage + ' )' );
+};
 Movie.fetchAll();
