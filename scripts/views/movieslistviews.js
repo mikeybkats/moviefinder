@@ -3,7 +3,7 @@
 
   movieListRender = function() {
     for (var i = 5; i < 20; i++) {
-      $('#movies-list').children().eq(i).hide();
+      $('#movies-list ul').children().eq(i).hide();
     }
     // $('#movies-detail').hide();
   };
@@ -13,15 +13,15 @@
 
       if( $('#showFullList').html() === 'show all top movies' ){
         $('#showFullList').html('hide all top movies');
-        $('#movies-list').children().hide();
-        $('#movies-list').children().show();
+        $('#movies-list ul').children().hide();
+        $('#movies-list ul').children().show();
       }
 
       else{
         $('#showFullList').html('show all top movies');
-        $('#movies-list').children().show();
+        $('#movies-list ul').children().show();
         for (var i = 5; i < 20; i++) {
-          $('#movies-list').children().eq(i).hide();
+          $('#movies-list ul').children().eq(i).hide();
         }
       }
 

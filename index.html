@@ -20,11 +20,12 @@
       </div>
     </script>
 
-    <script id="movieListTemplate" type="text/x-handlebars-template">
+    <!-- <script id="movieListTemplate" type="text/x-handlebars-template">
       <div class="movieListDiv">
-        <h4><a href="" id="moviePageLink" class="movie-title">{{title}}</a></h4>
+        <h4><a href="" id="moviePageLink" class="movie-title">
+           - {{title}}</a></h4>
       </div>
-    </script>
+    </script> -->
 
   </head>
 
@@ -46,8 +47,13 @@
       <div id="topMovie" data-content="numOne">
         <div id="topMovieBanner"></div>
         <div id="banner"></div>
-        <div id="movies-list"></div>
-        <button id='showFullList'>show all top movies</button>
+
+        <div>
+          <h2>The Top Movies</h2>
+          <div id="movies-list"></div>
+          <button id='showFullList'>show all top movies</button>
+        </div>
+
         <div id="movies-detail"></div>
       </div>
     </section>

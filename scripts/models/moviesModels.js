@@ -16,10 +16,37 @@ function Genre(opts){
   this.id = opts.id;
 };
 
-function appendMoviesList(){
-  moviesPlaying.allMovies.forEach(function(movieObj){
-    $('#movies-list').append(movieObj.listToHtml());
+function sortMoviesTopRating(){
+  moviesPlaying.allMovies.sort(function(a, b){
+    return parseFloat(b.vote_average) - parseFloat(a.vote_average);
   });
+};
+
+
+function appendMoviesList(){
+
+
+
+  Movie.moviesWithNumbers = moviesPlaying.allMovies.map(function(movieObj, index){
+    return {
+      indexValue: index+1,
+      title: movieObj.title
+    };
+  });
+  console.log((Movie.moviesWithNumbers));
+
+  var context = {
+    data: Movie.moviesWithNumbers
+  };
+
+  var template = '<ul>{{#each data}}<li><a href="" id="moviePageLink" class="movie-title">{{indexValue}} {{title}}</a></li>{{/each}}</ul>';
+  var rendered = Handlebars.compile(template)(context);
+  $('#movies-list').append(rendered);
+
+  //
+  // moviesPlaying.allMovies.forEach(function(movieObj){
+  //   $('#movies-list').append(movieObj.listToHtml());
+  // });
 };
 
 function appendMoviesSelection(){
@@ -41,14 +68,15 @@ Movie.fetchAll = function (callback){
     url:'/movieapi/movie/now_playing' ,
     method: 'GET',
     success: function(data, string, xhr){
-      console.log('/genre/movie/now_playing success', data);
+      // console.log('/genre/movie/now_playing success', data);
 
       if (data){
         data.results.forEach(function(obj){
           moviesPlaying.allMovies.push(new Movie(obj));
         });
       }
-      console.log(moviesPlaying.allMovies);
+      // console.log(moviesPlaying.allMovies);
+      sortMoviesTopRating();
       appendMoviesList();
       appendMoviesSelection();
       movieListRender();
@@ -63,7 +91,7 @@ Movie.fetchAll = function (callback){
     url: '/movieapi/genre/movie/list',
     method: 'GET',
     success: function(data, string, xhr){
-      console.log('/genre/movie/list success', data);
+      // console.log('/genre/movie/list success', data);
       if ( data && data.genres){
         data.genres.forEach(function(obj){
           moviesGenres.allGenres.push(new Genre(obj));
