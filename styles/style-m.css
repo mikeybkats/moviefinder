@@ -13,7 +13,7 @@ button {
   margin-bottom: 20px;
 }
 
-.movie-title {
+li .movie-title {
   color: black;
   font-size: 1.5em;
 }
