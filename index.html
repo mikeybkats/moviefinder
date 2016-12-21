@@ -11,26 +11,20 @@
     <link rel="stylesheet" href="vendor/styles/default.css">
     <link rel="stylesheet" href="vendor/styles/normalize.css">
     <link rel="stylesheet" href="styles/style-m.css">
+    <link rel="stylesheet" type="text/css" href="styles/animate.css" />
     <script id="movieTemplate" type="text/x-handlebars-template">
       <div class="moviesDiv">
         <div class="movie-image" style="background: url('{{movieImage}}') 100% 100% / cover no-repeat border-box" ></div>
-        <div class="movieTextContent">
-          <h2>{{title}}</h2>
-          <h4>Movie Finder Score: {{vote_average}} / 10</h4>
-          <p>{{overview}}</p>
-        </div>
+        <h2>{{title}}</h2>
+        <h4>vote average: {{vote_average}} / 10</h4>
+        <p>{{overview}}</p>
       </div>
     </script>
 
     <script id="movieListTemplate" type="text/x-handlebars-template">
-      <ul>
-        {{#each data}}
-        <li>
-          <a href="" id="moviePageLink" class="movie-title">
-            {{indexValue}} {{title}}</a>
-        </li>
-        {{/each}}
-      </ul>
+      <div class="movieListDiv">
+        <h4><a href="" id="moviePageLink" class="movie-title">{{title}}</a></h4>
+      </div>
     </script>
 
   </head>
@@ -53,22 +47,48 @@
       <div id="topMovie" data-content="numOne">
         <div id="topMovieBanner"></div>
         <div id="banner"></div>
-
-        <div>
-          <div class="movieTitleDiv">
-            <h2>The Top Movies</h2>
-          </div>
-          <div id="movies-list"></div>
-          <div class="buttonDiv"><button id='showFullList'>show all top movies</button></div>
-        </div>
-
+        <div id="movies-list"></div>
         <div id="movies-detail"></div>
+        <button id='showFullList'>show all top movies</button>
       </div>
     </section>
 
 <section id="about" class="tab-content">
-  <div id="team">
-  </div>
+  <div class="team">
+        <div class="abteam">
+            <div id="gcap" class="caption">
+                <h3>Name</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <img id="gpic" src="assets/genoevil.png" />
+        </div>
+
+        <div class="abteam">
+            <div id="bcap" class="caption">
+                <h3>Name</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <img id="bearcat" src="assets/bearcat.png" />
+        </div>
+
+        <div class="abteam">
+            <div id="sucap" class="caption">
+                <h3>Name</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <img id="sue" src="assets/sue.png" />
+        </div>
+
+        <div class="abteam">
+            <div id="stcap" class="caption">
+                <h3>Name</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <img id="step" src="assets/stephan.png" />
+        </div>
+</div>
+
+
 </section>
 
 
@@ -83,6 +103,7 @@
     <script src="scripts/models/moviesModels.js "></script>
     <script src="scripts/views/moviesRender.js "></script>
 
+    <script src="scripts/views/moviesChosen.js "></script>
     <script src="scripts/controllers/routes.js "></script>
     <script src="scripts/controllers/movieSelection.js "></script>
     <script src="scripts/views/moviesListViews.js "></script>
