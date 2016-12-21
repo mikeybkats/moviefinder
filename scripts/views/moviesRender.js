@@ -6,7 +6,7 @@ Movie.prototype.detailToHtml = function(){
 
 function appendMoviesSelection(){
   moviesPlaying.allMovies.forEach(function(movieObj) {
-    $('#movies-detail').append(movieObj.detailToHtml());
+    $('#movie-info').append(movieObj.detailToHtml());
   });
 };
 
