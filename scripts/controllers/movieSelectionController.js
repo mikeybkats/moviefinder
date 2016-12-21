@@ -3,6 +3,7 @@
   var movieSelectionController = {};
 
   movieSelectionController.reveal = function(ctx, next) {
+    $('#about').hide();
     $('#movies-list').hide();
     $('#movies-detail').show();
 

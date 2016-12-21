@@ -3,8 +3,9 @@
   var homeController = {};
 
   homeController.reveal = function(ctx, next) {
-    $('#topMovie').show();
+    $('#about').hide();
     $('#movies-detail').hide();
+    $('#topMovie').show();
 
     next();
   };
