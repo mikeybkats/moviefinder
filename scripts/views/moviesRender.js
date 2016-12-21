@@ -33,5 +33,7 @@ function sortMoviesTopRating(){
     return parseFloat(b.vote_average) - parseFloat(a.vote_average);
   });
 };
-
+function topMovieBanner() {
+  $('#topMovieBanner').css('background-image', 'url(' + moviesPlaying.allMovies[0].movieImage + ' )' );
+};
 Movie.fetchAll();

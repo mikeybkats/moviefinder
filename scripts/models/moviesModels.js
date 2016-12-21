@@ -42,6 +42,7 @@ Movie.fetchAll = function (callback){
       appendMoviesSelection();
       movieListRender();
       showListRender();
+      topMovieBanner();
       // callback();
     }
   });
