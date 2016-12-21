@@ -4,14 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles/base.css">
-    <link rel="stylesheet" href="styles/icons.css">
-    <link rel="stylesheet" href="styles/layout.css">
-    <link rel="stylesheet" href="styles/module.css">
-    <link rel="stylesheet" href="vendor/styles/default.css">
-    <link rel="stylesheet" href="vendor/styles/normalize.css">
-    <link rel="stylesheet" href="styles/style-m.css">
-    <link rel="stylesheet" type="text/css" href="styles/animate.css">
+    <link rel="stylesheet" href="/styles/base.css">
+    <link rel="stylesheet" href="/styles/icons.css">
+    <link rel="stylesheet" href="/styles/layout.css">
+    <link rel="stylesheet" href="/styles/module.css">
+    <link rel="stylesheet" href="/vendor/styles/default.css">
+    <link rel="stylesheet" href="/vendor/styles/normalize.css">
+    <link rel="stylesheet" href="/styles/style-m.css">
+    <link rel="stylesheet" type="text/css" href="/styles/animate.css">
     <script id="movieTemplate" type="text/x-handlebars-template">
       <div id={{contextTitle}} class="moviesDiv">
         <div class="movie-image" style="background: url('{{movieImage}}') 100% 100% / cover no-repeat border-box" ></div>
@@ -36,7 +36,7 @@
 
 <body>
     <header class="site-header clearfix">
-        <img src="assets/logo.png" id="logo">
+        <img src="/assets/logo.png" id="logo">
         <section class="heading-group-h1">
         </section>
         <nav class="main-nav">
@@ -50,7 +50,7 @@
 
     <section id="main-content">
 
-      <div id="topMovie" data-content="numOne">
+      <!-- <div id="topMovie" data-content="numOne"> -->
         <div id="topMovieBanner" class="topMovieBanner">
           <div class="topBannerHeader">
             <h1>The COOLEST MOOOVIE</h1>
@@ -68,6 +68,8 @@
       </div>
 
     </section>
+
+    <section id="movie-info"></section>
 
     <section id="about" class="tab-content">
         <h1 id="abtitle">Our Team</h1>

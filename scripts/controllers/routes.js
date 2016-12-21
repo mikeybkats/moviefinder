@@ -6,10 +6,9 @@ function showClickedMovie(){
   var aboutController = {};
   aboutController.reveal = function(ctx, next) {
     window.document.title = 'About';
-    $('#movies-list').hide();
-    $('#topMovie').hide();
-    $('#movies-detail').hide();
-    //$('#about').show();
+    $('#main-content').hide();
+    $('#movie-info').hide();
+    $('#about').show();
     //this is function is here because it wasn't working in the aboutController page.
     //also, once the index page is modified, the code can be refracted a bit to refer to classes rather than ids.
 

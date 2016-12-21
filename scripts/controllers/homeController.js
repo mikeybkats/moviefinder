@@ -4,8 +4,9 @@
 
   homeController.reveal = function(ctx, next) {
     window.document.title = 'Home';
+    $('#about').hide();
+    $('#movie-info').hide();
     $('#movies-list').show();
-    $('#movies-detail').hide();
 
     next();
   };
