@@ -6,8 +6,7 @@ function showClickedMovie(){
   var aboutController = {};
   aboutController.reveal = function(ctx, next) {
     window.document.title = 'About';
-    $('#movies-list').hide();
-    $('#topMovie').hide();
+    $('#main-content').hide();
     $('#movie-info').hide();
     $('#about').show();
     //this is function is here because it wasn't working in the aboutController page.
