@@ -26,7 +26,15 @@ function Genre(opts){
 };
 
 Movie.sendToJson = function(){
+  // check if localStorage exists
+  if (localStorage.getItem('allMoviesData')){
+    localStorage.clear();
+  };
+
   // stringify and store the data in local storage.
+  var movieJsonData = JSON.stringify(moviesPlaying.allMovies);
+  // setting json movies in local storage
+  localStorage.setItem('allMoviesData', movieJsonData);
 };
 
 Movie.createTable = function(){
@@ -61,6 +69,9 @@ Movie.fetchAll = function (callback){
       showListRender();
       topMovieBanner();
       // callback();
+
+      Movie.sendToJson();
+
     }
   });
 
