@@ -1,4 +1,4 @@
-//(function(module){
+(function(module){
 
   var movieSelectionController = {};
 
@@ -28,4 +28,4 @@
     next();
   };
   module.movieSelectionController = movieSelectionController;
-//})(window);
+})(window);
