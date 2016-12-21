@@ -18,6 +18,18 @@
   max-width: 80%;
 }
 
+.topMovieBanner {
+  display: flex;
+  flex-direction: column-reverse;;
+}
+
+.topBannerHeader h1 {
+    color: white;
+    background: RGBA(0, 0, 0, .60);
+    padding: 5px 5px 5px 10px;
+    width: 50%;
+}
+
 #filters select {
   width: 90%;
   margin: .2em 5%;
