@@ -2,12 +2,13 @@
 
   var aboutController = {};
 
-  homeController.reveal = function(ctx, next) {
-    $('#topMovie').hide();
-    $('#movies-detail').hide();
-    $('#about').show();
+  aboutController.reveal = function(ctx, next) {
+    window.document.title = 'About';
+    //$('#movies-list').hide();
+    //$('#movies-detail').hide();
+    //$('#about').show();
 
     next();
   };
-  module.about = homeController;
+  module.about = aboutController;
 })(window);
