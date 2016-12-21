@@ -4,8 +4,8 @@
 
   aboutController.reveal = function(ctx, next) {
     window.document.title = 'About';
-    $('#movies-list').hide();
-    $('#movies-detail').hide();
+    //$('#movies-list').hide();
+    //$('#movies-detail').hide();
     //$('#about').show();
 
     next();
