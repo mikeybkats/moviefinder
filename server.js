@@ -20,6 +20,10 @@ app.get('/movieapi/*', function(req, res){
 
 app.use(express.static(__dirname + '/'));
 
+app.get('*', function(request, response) {
+  response.sendFile('index.html', { root: '.' });
+});
+
 var server = app.listen(process.env.PORT , function () {
   console.log('App now running on port', process.env.PORT);
 });

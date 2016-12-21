@@ -14,7 +14,8 @@ function appendMoviesList(){
   Movie.moviesWithNumbers = moviesPlaying.allMovies.map(function(movieObj, index){
     return {
       indexValue: index+1,
-      title: movieObj.title
+      title: movieObj.title,
+      path: movieObj.path
     };
   });
 
