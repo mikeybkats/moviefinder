@@ -1,0 +1,57 @@
+.team {
+    display: inline;
+    width: 990px;
+    margin: 20px 0 0 -30px;
+    border: 4 solid yellow;
+}
+
+.abteam {
+    position: relative;
+    float: left;
+    width: 180px;
+    height: 200px;
+    margin: 60px 70px 200px 20px;
+}
+
+.caption {
+    display: none;
+    position: absolute;
+    margin-top: 40px;
+    left: 0;
+    background-color: gray;
+    width: 300px;
+    height: 300px;
+}
+
+#abouth3, #pabout {
+    color: #fff;
+    margin: 20px;
+}
+
+#abouth3 {
+    margin: 20px 20px 10px;
+}
+
+#pabout {
+    font-size: .75em;
+    line-height: 1.5em;
+    margin: 0 20px 15px;
+}
+
+.abpics {
+  width: 300px;
+  height: 300px;
+    margin: 20px;
+    padding: 20px;
+}
+
+.abteams {
+    display: inline;
+}
+
+#abouth1 {
+    margin-top: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
