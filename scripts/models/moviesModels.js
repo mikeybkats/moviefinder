@@ -1,3 +1,9 @@
+moviesPlaying = {};
+moviesPlaying.allMovies = [];
+
+moviesGenres = {};
+moviesGenres.allGenres = [];
+
 function Movie(opts){
   this.poster_path = opts.poster_path;
   this.overview = opts.overview;
@@ -18,25 +24,6 @@ function Genre(opts){
   this.id = opts.id;
 };
 
-function appendMoviesList(){
-  moviesPlaying.allMovies.forEach(function(movieObj){
-    $('#movies-list').append(movieObj.listToHtml());
-  });
-};
-
-function appendMoviesSelection(){
-  moviesPlaying.allMovies.forEach(function(movieObj) {
-    $('#movies-detail').append(movieObj.detailToHtml());
-  });
-};
-
-
-moviesPlaying = {};
-moviesPlaying.allMovies = [];
-
-moviesGenres = {};
-moviesGenres.allGenres = [];
-
 Movie.fetchAll = function (callback){
   $.ajax({
     async: true,
@@ -44,6 +31,7 @@ Movie.fetchAll = function (callback){
     url:'/movieapi/movie/now_playing' ,
     method: 'GET',
     success: function(data, string, xhr){
+      // console.log('/genre/movie/now_playing success', data);
       //console.log('/genre/movie/now_playing success', data);
 
       if (data){
@@ -51,6 +39,8 @@ Movie.fetchAll = function (callback){
           moviesPlaying.allMovies.push(new Movie(obj));
         });
       }
+      // console.log(moviesPlaying.allMovies);
+      sortMoviesTopRating();
       //console.log(moviesPlaying.allMovies);
       appendMoviesList();
       appendMoviesSelection();
@@ -66,6 +56,7 @@ Movie.fetchAll = function (callback){
     url: '/movieapi/genre/movie/list',
     method: 'GET',
     success: function(data, string, xhr){
+      // console.log('/genre/movie/list success', data);
       //console.log('/genre/movie/list success', data);
       if ( data && data.genres){
         data.genres.forEach(function(obj){

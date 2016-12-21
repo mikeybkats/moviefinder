@@ -14,18 +14,24 @@
     <script id="movieTemplate" type="text/x-handlebars-template">
       <div id={{contextTitle}} class={{id}} "moviesDiv">
         <div class="movie-image" style="background: url('{{movieImage}}') 100% 100% / cover no-repeat border-box" ></div>
-        <h2>{{title}}</h2>
-        <h4>vote average: {{vote_average}} / 10</h4>
-        <p>{{overview}}</p>
+        <div class="movieTextContent">
+          <h2>{{title}}</h2>
+          <h4>Movie Finder Score: {{vote_average}} / 10</h4>
+          <p>{{overview}}</p>
+        </div>
       </div>
     </script>
 
     <script id="movieListTemplate" type="text/x-handlebars-template">
-      <div id={{contextTitle}} class={{id}} "movieListDiv">
-        <h4><a href={{path}} id="moviePageLink" class="movie-title">{{title}}</a></h4>
-      </div>
+      <ul>
+        {{#each data}}
+        <li>
+          <a href="{{path}}" id="moviePageLink" class="movie-title">
+            {{indexValue}} {{title}}</a>
+        </li>
+        {{/each}}
+      </ul>
     </script>
-
   </head>
 
   <body>
@@ -46,9 +52,16 @@
       <div id="topMovie" data-content="numOne">
         <div id="topMovieBanner"></div>
         <div id="banner"></div>
-        <div id="movies-list"></div>
+
+        <div>
+          <div class="movieTitleDiv">
+            <h2>The Top Movies</h2>
+          </div>
+          <div id="movies-list"></div>
+          <div class="buttonDiv"><button id='showFullList'>show all top movies</button></div>
+        </div>
+
         <div id="movies-detail"></div>
-        <button id='showFullList'>show all top movies</button>
       </div>
     </section>
 
@@ -63,13 +76,10 @@
     <script src="/scripts/models/moviesModels.js "></script>
     <script src="/scripts/views/movieslistviews.js "></script>
     <script src="/scripts/views/moviesRender.js "></script>
-    <script src="/scripts/views/moviesChosen.js "></script>
     <script src="/scripts/controllers/movieSelectionController.js "></script>
     <script src="/scripts/controllers/homeController.js "></script>
     <script src="/scripts/controllers/aboutController.js "></script>
-    <script src="/scripts/controllers/routes.js "></script>
-
-
+    <script src="scripts/controllers/routes.js "></script>
 
 
   </body>
