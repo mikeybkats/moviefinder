@@ -1,15 +1,3 @@
-$('.team').hide();
-
-function aboutus() {
-  $('#abouth1').click(function() {
-    $('.team').show();
-    $('#abouth1').hide();
-  });
-
-}
-// ^^^^^^^the code above is not needed, just trying something out
-
-
 function hover() {
   $('#gpic').mouseover(
     function() {
@@ -19,7 +7,6 @@ function hover() {
     function() {
       $('#gcap').hide();
     }
-
   );
   $('#sue').mouseover(
     function() {
@@ -49,5 +36,5 @@ function hover() {
     });
 
 };
-aboutus();
+
 hover();

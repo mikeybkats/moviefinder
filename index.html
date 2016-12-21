@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/base.css">
@@ -11,104 +11,98 @@
     <link rel="stylesheet" href="vendor/styles/default.css">
     <link rel="stylesheet" href="vendor/styles/normalize.css">
     <link rel="stylesheet" href="styles/style-m.css">
-    <link rel="stylesheet" type="text/css" href="styles/animate.css" />
+    <link rel="stylesheet" type="text/css" href="styles/animate.css">
     <script id="movieTemplate" type="text/x-handlebars-template">
-      <div class="moviesDiv">
-        <div class="movie-image" style="background: url('{{movieImage}}') 100% 100% / cover no-repeat border-box" ></div>
-        <h2>{{title}}</h2>
-        <h4>vote average: {{vote_average}} / 10</h4>
-        <p>{{overview}}</p>
-      </div>
+        <div class="moviesDiv">
+            <div class="movie-image" style="background: url('{{movieImage}}') 100% 100% / cover no-repeat border-box"></div>
+            <h2>{{title}}</h2>
+            <h4>vote average: {{vote_average}} / 10</h4>
+            <p>{{overview}}</p>
+        </div>
     </script>
 
     <script id="movieListTemplate" type="text/x-handlebars-template">
-      <div class="movieListDiv">
-        <h4><a href="" id="moviePageLink" class="movie-title">{{title}}</a></h4>
-      </div>
+        <div class="movieListDiv">
+            <h4><a href="" id="moviePageLink" class="movie-title">{{title}}</a></h4>
+        </div>
     </script>
 
-  </head>
+</head>
 
-  <body>
+<body>
     <header class="site-header clearfix">
-  <img src="assets/logo.png" id="logo">
-      <section class="heading-group-h1">
-      </section>
-      <nav class="main-nav">
-        <div class="icon-menu"></div>
-        <ul>
-          <li class="tab" data-content="topTen"><a href="/">Home</a></li>
-          <li class="tab" data-content="about"><a href="/about">About</a></li>
-        </ul>
-      </nav>
+        <img src="assets/logo.png" id="logo">
+        <section class="heading-group-h1">
+        </section>
+        <nav class="main-nav">
+            <div class="icon-menu"></div>
+            <ul>
+                <li class="tab" data-content="topTen"><a href="/">Home</a></li>
+                <li class="tab" data-content="about"><a href="/about">About</a></li>
+            </ul>
+        </nav>
     </header>
 
     <section id="main-content">
-      <div id="topMovie" data-content="numOne">
-        <div id="topMovieBanner"></div>
-        <div id="banner"></div>
-        <div id="movies-list"></div>
-        <div id="movies-detail"></div>
-        <button id='showFullList'>show all top movies</button>
-      </div>
+        <div id="topMovie" data-content="numOne">
+            <div id="topMovieBanner"></div>
+            <div id="banner"></div>
+            <div id="movies-list"></div>
+            <div id="movies-detail"></div>
+            <button id='showFullList'>show all top movies</button>
+        </div>
     </section>
 
-<section id="about" class="tab-content">
-  <div class="team">
-        <div class="abteam">
-            <div id="gcap" class="caption">
-                <h3>Name</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <section id="about" class="tab-content">
+        <div class="team">
+            <div class="abteam">
+                <div id="gcap" class="caption">
+                    <h3 id="abouth3">Name</h3>
+                    <p id="pabout">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <img id="gpic" class="abpics" src="assets/genoevil.png" />
             </div>
-            <img id="gpic" src="assets/genoevil.png" />
-        </div>
 
-        <div class="abteam">
-            <div id="bcap" class="caption">
-                <h3>Name</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <div class="abteam">
+                <div id="bcap" class="caption">
+                    <h3 id="abouth3">Name</h3>
+                    <p id="pabout">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <img id="bearcat" class="abpics" src="assets/bearcat.png" />
             </div>
-            <img id="bearcat" src="assets/bearcat.png" />
-        </div>
 
-        <div class="abteam">
-            <div id="sucap" class="caption">
-                <h3>Name</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <div class="abteam">
+                <div id="sucap" class="caption">
+                    <h3 id="abouth3">Name</h3>
+                    <p id="pabout">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <img id="sue" class="abpics" src="assets/sue.png" />
             </div>
-            <img id="sue" src="assets/sue.png" />
-        </div>
 
-        <div class="abteam">
-            <div id="stcap" class="caption">
-                <h3>Name</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <div class="abteam">
+                <div id="stcap" class="caption">
+                    <h3 id="abouth3">Name</h3>
+                    <p id="pabout">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <img id="step" class="abpics" src="assets/stephan.png" />
             </div>
-            <img id="step" src="assets/stephan.png"/>
         </div>
-</div>
+    </section>
 
-
-</section>
-
-
-
-  <footer class="coolFooter">
-    <div class="middle">&copy; 2016 Code Fellows</div>
-  </footer>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <footer class="coolFooter">
+        <div class="middle">&copy; 2016 Code Fellows</div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
     <script src="vendor/scripts/jquery-2.1.4.js "></script>
     <script src="vendor/scripts/handlebars.js "></script>
     <script src="scripts/models/moviesModels.js "></script>
     <script src="scripts/views/moviesRender.js "></script>
-    <script src="scripts/models/aboutUs.js"></script>
-    <script src="scripts/views/moviesChosen.js "></script>
+    <script src="scripts/views/moviesListViews.js "></script>
     <script src="scripts/controllers/routes.js "></script>
     <script src="scripts/controllers/movieSelection.js "></script>
-    <script src="scripts/views/moviesListViews.js "></script>
+    <script src="scripts/models/aboutUs.js"></script>
 
-
-  </body>
+</body>
 
 </html>
