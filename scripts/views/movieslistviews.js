@@ -26,6 +26,6 @@
 
     });
   };
-
+$('#movies-detail').find('#Arrival').css('color', 'red');
   module.movieListRenderObj = movieListRenderObj;
 })(window);
