@@ -1,3 +1,8 @@
+Movie.prototype.detailToHtml = function(){
+  var $templateScript = $('#movieTemplate').html();
+  var moviesCompiler = Handlebars.compile($templateScript);
+  return moviesCompiler(this);
+};
 
 function appendMoviesSelection(){
   moviesPlaying.allMovies.forEach(function(movieObj) {
@@ -17,9 +22,10 @@ function appendMoviesList(){
     data: Movie.moviesWithNumbers
   };
 
-  var template = '<ul>{{#each data}}<li><a href="" id="moviePageLink" class="movie-title">{{indexValue}} {{title}}</a></li>{{/each}}</ul>';
-  var rendered = Handlebars.compile(template)(context);
-  $('#movies-list').append(rendered);
+  var $template = $('#movieListTemplate').html();
+  var compiledMoviesList = Handlebars.compile($template)(context);
+  $('#movies-list').append(compiledMoviesList);
+
 };
 
 function sortMoviesTopRating(){

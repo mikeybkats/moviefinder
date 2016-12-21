@@ -22,12 +22,16 @@
       </div>
     </script>
 
-    <!-- <script id="movieListTemplate" type="text/x-handlebars-template">
-      <div class="movieListDiv">
-        <h4><a href="" id="moviePageLink" class="movie-title">
-           - {{title}}</a></h4>
-      </div>
-    </script> -->
+    <script id="movieListTemplate" type="text/x-handlebars-template">
+      <ul>
+        {{#each data}}
+        <li>
+          <a href="" id="moviePageLink" class="movie-title">
+            {{indexValue}} {{title}}</a>
+        </li>
+        {{/each}}
+      </ul>
+    </script>
 
   </head>
 
@@ -72,7 +76,6 @@
     <script src="scripts/models/moviesModels.js "></script>
     <script src="scripts/views/moviesRender.js "></script>
 
-    <script src="scripts/views/moviesChosen.js "></script>
     <script src="scripts/controllers/routes.js "></script>
     <script src="scripts/controllers/movieSelection.js "></script>
     <script src="scripts/views/moviesListViews.js "></script>
