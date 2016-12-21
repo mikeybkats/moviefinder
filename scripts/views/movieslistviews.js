@@ -5,7 +5,6 @@
     for (var i = 5; i < 20; i++) {
       $('#movies-list ul').children().eq(i).hide();
     }
-    // $('#movies-detail').hide();
   };
 
   showListRender = function(event){
