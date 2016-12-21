@@ -4,7 +4,7 @@
 
   movieSelectionController.reveal = function(ctx, next) {
     $('#about').hide();
-    $('#movies-list').hide();
+    $('#main-content').hide();
     $('#movie-info').show();
 
     function showClickedMovie(){
