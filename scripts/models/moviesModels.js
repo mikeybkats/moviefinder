@@ -25,6 +25,18 @@ function Genre(opts){
   this.id = opts.id;
 };
 
+Movie.sendToJson = function(){
+  // stringify and store the data in local storage.
+};
+
+Movie.createTable = function(){
+  // creates an empty sql table
+};
+
+Movie.prototype.insertRecord = function() {
+  // insert the object into the sql table
+};
+
 Movie.fetchAll = function (callback){
   $.ajax({
     async: true,
