@@ -17,6 +17,7 @@ function Movie(opts){
   this.movieImage = 'http://image.tmdb.org/t/p/w500'+ opts.backdrop_path;
   this.path = '/movie/' + opts.title.replace(/\s+/g, '');
   this.contextTitle = opts.title.replace(/\s+/g, '').replace(/[^a-zA-Z ]/g, '');
+
 };
 
 function Genre(opts){
@@ -46,6 +47,7 @@ Movie.fetchAll = function (callback){
       appendMoviesSelection();
       movieListRender();
       showListRender();
+      topMovieBanner();
       // callback();
     }
   });
