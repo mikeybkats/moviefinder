@@ -9,7 +9,8 @@ function Movie(opts){
   this.vote_average = opts.vote_average;
   this.genre_ids = opts.genre_ids[0];
   this.movieImage = 'http://image.tmdb.org/t/p/w500'+ opts.backdrop_path;
-  this.path = '/' + opts.title.replace(/\s+/g, '');
+  this.path = '/movie/:' + opts.title.replace(/\s+/g, '');
+  this.contextTitle = opts.title.replace(/\s+/g, '').replace(/[^a-zA-Z ]/g, '');
 };
 
 function Genre(opts){
@@ -43,14 +44,14 @@ Movie.fetchAll = function (callback){
     url:'/movieapi/movie/now_playing' ,
     method: 'GET',
     success: function(data, string, xhr){
-      console.log('/genre/movie/now_playing success', data);
+      //console.log('/genre/movie/now_playing success', data);
 
       if (data){
         data.results.forEach(function(obj){
           moviesPlaying.allMovies.push(new Movie(obj));
         });
       }
-      console.log(moviesPlaying.allMovies);
+      //console.log(moviesPlaying.allMovies);
       appendMoviesList();
       appendMoviesSelection();
       movieListRender();
@@ -65,7 +66,7 @@ Movie.fetchAll = function (callback){
     url: '/movieapi/genre/movie/list',
     method: 'GET',
     success: function(data, string, xhr){
-      console.log('/genre/movie/list success', data);
+      //console.log('/genre/movie/list success', data);
       if ( data && data.genres){
         data.genres.forEach(function(obj){
           moviesGenres.allGenres.push(new Genre(obj));
