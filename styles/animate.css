@@ -39,7 +39,8 @@
 }
 
 .abpics {
-    height: 300px;
+  width: 300px;
+  height: 300px;
     margin: 20px;
     padding: 20px;
 }

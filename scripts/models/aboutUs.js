@@ -1,38 +1,38 @@
 function hover() {
-  $('#gpic').mouseover(
+  $('#gnodiv').mouseover(
     function() {
       $('#gcap').show();
     });
-  $('#gpic').mouseout(
+  $('#gnodiv').mouseout(
     function() {
       $('#gcap').hide();
     }
   );
-  $('#sue').mouseover(
-    function() {
-      $('#sucap').show();
-    });
-  $('#sue').mouseout(
-    function() {
-      $('#sucap').hide();
-    }
-  );
-  $('#step').mouseover(
-    function() {
-      $('#stcap').show();
-    });
-  $('#step').mouseout(
-    function() {
-      $('#stcap').hide();
-    }
-  );
-  $('#bearcat').mouseover(
+  $('#micdiv').mouseover(
     function() {
       $('#bcap').show();
     });
-  $('#bearcat').mouseout(
+  $('#micdiv').mouseout(
     function() {
       $('#bcap').hide();
+    }
+  );
+  $('#suediv').mouseover(
+    function() {
+      $('#suecap').show();
+    });
+  $('#suediv').mouseout(
+    function() {
+      $('#suecap').hide();
+    }
+  );
+  $('#stepdiv').mouseover(
+    function() {
+      $('#stcap').show();
+    });
+  $('#stepdiv').mouseout(
+    function() {
+      $('#stcap').hide();
     });
 
 };
