@@ -34,7 +34,22 @@ function sortMoviesTopRating(){
     return parseFloat(b.vote_average) - parseFloat(a.vote_average);
   });
 };
+
 function topMovieBanner() {
   $('#topMovieBanner').css('background-image', 'url(' + moviesPlaying.allMovies[0].movieImage + ' )' );
 };
+
+Movie.loadAll = function(rows) {
+  moviesPlaying.allMovies = rows.map(function(ele) {
+    return new Movie(ele);
+  });
+  if (moviesPlaying.allMovies.length){console.log('Success: mapping all movies to object constructor.');}
+  sortMoviesTopRating();
+  appendMoviesList();
+  appendMoviesSelection();
+  movieListRender();
+  showListRender();
+  topMovieBanner();
+};
+
 Movie.fetchAll();

@@ -2,7 +2,7 @@ page('/', homeController.reveal);
 
 page('/movie/:title', movieSelectionController.reveal);
 
-function showClickedMovie(){
+function showAboutPage(){
   var aboutController = {};
   aboutController.reveal = function(ctx, next) {
     window.document.title = 'About';
@@ -17,6 +17,6 @@ function showClickedMovie(){
 
   page('/about', aboutController.reveal);
 }
-showClickedMovie();
+showAboutPage();
 
 page();

@@ -1,12 +1,6 @@
 (function(module) {
   var movieListRenderObj = {};
 
-  movieListRender = function() {
-    for (var i = 5; i < 20; i++) {
-      $('#movies-list ul').children().eq(i).hide();
-    }
-  };
-
   showListRender = function(event){
     $('#showFullList').on('click', function(){
 
@@ -27,5 +21,13 @@
     });
   };
 
+  movieListRender = function() {
+    for (var i = 5; i < 20; i++) {
+      $('#movies-list ul').children().eq(i).hide();
+    }
+    // movieListRenderObj.showListRender();
+  };
+
+  // Movie.fetchAll(movieListRenderObj.movieListRender);
   module.movieListRenderObj = movieListRenderObj;
 })(window);
