@@ -43,13 +43,16 @@ Movie.loadAll = function(rows) {
   moviesPlaying.allMovies = rows.map(function(ele) {
     return new Movie(ele);
   });
-  if (moviesPlaying.allMovies.length){console.log('Success: mapping all movies to object constructor.');}
+  if (moviesPlaying.allMovies.length){console.log('Success: moviesPlaying.allMovies.length is true.');}
   sortMoviesTopRating();
   appendMoviesList();
   appendMoviesSelection();
   movieListRender();
   showListRender();
   topMovieBanner();
+
 };
 
-Movie.fetchAll();
+Movie.fetchAll(function(movieData){
+  Movie.loadAll(movieData);
+});

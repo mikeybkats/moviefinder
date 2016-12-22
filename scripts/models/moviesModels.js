@@ -8,7 +8,7 @@ function Movie(opts){
   this.id = opts.id;
   this.vote_count = opts.vote_count;
   this.movieImage = 'https://image.tmdb.org/t/p/w500'+ opts.backdrop_path;
-  this.path = '/movie/' + opts.title.replace(/\s+/g, '');
+  this.path = '/movie/' + this.contextTitle;
   this.vote_average = opts.vote_average;
   this.genre_ids = opts.genre_ids[0];
   this.popularity = opts.popularity;
@@ -50,14 +50,20 @@ Movie.makeMovieObjects = function(data){
 };
 
 
-Movie.allMovies = function(){
+Movie.allMovies = function(callback){
   webDB.execute(
         'SELECT * FROM movies',
         function(rows) {
-          if (rows){console.log('Success: rows are present in table');}
-          Movie.loadAll(rows);
+          if (rows){
+            console.log('Success: rows are present in table', rows);
+            callback(rows);
+            // Movie.loadAll(rows);
+            return;
+          }
+          callback();
         });
 };
+
 
 Movie.fetchAll = function (callback){
   webDB.execute(
@@ -65,7 +71,7 @@ Movie.fetchAll = function (callback){
     function (rows){
 
       if (rows.length) {
-        Movie.allMovies();
+        Movie.allMovies(callback);
       }
 
       else{
@@ -75,13 +81,11 @@ Movie.fetchAll = function (callback){
           url:'/movieapi/movie/now_playing' ,
           method: 'GET',
           success: function(data, string, xhr){
-
             Movie.makeMovieObjects(data.results);
-            Movie.allMovies();
-            if (moviesPlaying.allMovies.length){
-              console.log('Success: objects exported from table.');
-              console.log(moviesPlaying.allMovies);
-            }
+
+            Movie.allMovies(function(data){
+              callback(data)
+            });
 
           }
         });
