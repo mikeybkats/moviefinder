@@ -7,7 +7,7 @@ function Movie(opts){
   this.release_date = opts.release_date;
   this.id = opts.id;
   this.vote_count = opts.vote_count;
-  this.movieImage = 'https://image.tmdb.org/t/p/w500'+ opts.backdrop_path;
+  this.movieImage = 'https://image.tmdb.org/t/p/original'+ opts.backdrop_path;
   this.path = '/movie/' + this.contextTitle;
   this.vote_average = opts.vote_average;
   this.genre_ids = opts.genre_ids[0];

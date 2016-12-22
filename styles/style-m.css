@@ -1,3 +1,7 @@
+body {
+    height: 100vh;
+}
+
 button {
   background-color: #13139B;
   border: none;
@@ -7,15 +11,24 @@ button {
   font-size: 2em;
 }
 
+.middle {
+  color: white;
+}
+
 .buttonDiv {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+  padding-top: 5%;
+  padding-bottom: 5%;
 }
 
 li .movie-title {
   color: black;
-  font-size: 1.5em;
+  font-size: 2em;
+  cursor: pointer;
+  padding: 10px;
+  line-height: 1.8em;
 }
 
 .movieTitleDiv {
@@ -33,12 +46,56 @@ li .movie-title {
 
 .movieTextContent h2 {
   margin-bottom: 0px;
+  font-size: 3.2em;
 }
 
 .movieTextContent h4 {
   margin-top: 0px;
+  font-size: 2em;
+  font-weight: lighter;
 }
 
-ul {
-  list-style-type: none;
+.main-content{
+}
+
+.header-logo {
+  max-width: 50%;
+}
+
+@media only screen and (min-width: 640px){
+  .movie-image {
+    width: 100%;
+    height: 70vh;
+  }
+
+  .movieTitleDiv {
+    padding: 0px 20px 0px 15%;
+  }
+
+  .movieTextContent {
+    padding: 70px;
+  }
+
+  li {
+    width: 100%;
+  }
+
+  ul {
+    display: flex;
+    padding: 0px;
+    list-style-type: none;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+  }
+
+  .movies-list {
+
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+  }
+
 }

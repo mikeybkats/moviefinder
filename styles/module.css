@@ -42,8 +42,9 @@ background-color: rgba(213, 209, 209, 0.15);
 footer div {
   display: block;
   background-color: grey;
-  border-top: 2px solid darkblue;
-  border-bottom: 2px solid darkblue;
+  padding: 80px;
+  /*border-top: 2px solid darkblue;
+  border-bottom: 2px solid darkblue;*/
 
 }
 .middle {
@@ -56,14 +57,16 @@ footer div {
 
   .main-nav {
     padding: .2em .2em .2em 2em;
-
-    height: 45px;
+    background-color: black;
     border-bottom: 3px solid blue;
   }
 
   .main-nav  a {
-    color:black;
+    color: white;
+    font-size: 1.5em;
+    margin-left: 40px;
   }
+  
   .main-nav ul {
     display: block;
 
