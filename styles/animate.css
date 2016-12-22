@@ -1,27 +1,27 @@
 .team {
     display: inline;
     width: 100%;
-    border: 4 solid yellow;
-    margin-bottom: 200px;
+    margin-bottom: 20px;
 }
 
+#abtitle{
+  margin-top: 80px;
+}
 .abteam {
     position: relative;
     float: left;
-    width: 180px;
-    height: 200px;
-    margin: 0px 80px 200px 20px;
+    width: 16.5em;
+    height: 16.5em;
+    margin: .1em .em .2em .5em;
     display: inline;
 }
 
 .caption {
     display: none;
     position: absolute;
-    margin-top: 40px;
-    left: 0;
-    background-color: gray;
-    width: 300px;
-    height: 300px;
+      background-image: url("../assets/background.jpg");
+      width: 16.5em;
+      height: 16.5em;
 }
 
 #abouth3, #pabout {
@@ -33,23 +33,9 @@
     margin: 20px 20px 10px;
 }
 
-#pabout {
-    font-size: .75em;
-    line-height: 1.5em;
-    margin: 0 20px 15px;
-}
-
-.abpics {
-    width: 300px;
-    height: 300px;
-    margin: 20px;
-    padding: 20px;
-}
-
-
 
 #abouth1 {
-    margin-top: 20%;
+    margin-top:200px;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -58,21 +44,73 @@
 #about {
     display: flex;
     flex-direction: column;
-        margin-left: 55px;
+        margin-left: 15px;
 }
 
 @media (max-width: 400px) {
     #about {
-        margin-left: 15%;
+        margin-left:1.2em;
     }
     .abteam {
         position: relative;
         float: left;
-        width: 180px;
-        height: 200px;
-        margin: 40px 60px 90px 20px;
+        width: 16.5em;
+        height: 16.5em;
+        margin: 1em 2em 1em 2em;
     }
     .coolFooter {
-        margin-top: 140px;
+        margin-top: 8em;
     }
 }
+
+.pscroll{
+  width: 90%;
+  height: 80%;
+  margin: auto;
+overflow: hidden;
+position: relative;
+
+}
+.abpics{
+  width: 16.5em;
+  height: 16.5em;
+}
+
+#pabout {
+  font-size: 1.2em;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  line-height: 25px;
+  text-align:center;
+  color: white;
+  /* Starting position */
+  -moz-transform:translateY(100%);
+  -webkit-transform:translateY(100%);
+  transform:translateY(100%);
+  /* Apply animation to this element */
+  -moz-animation: scroll-up 20s linear infinite;
+  -webkit-animation: scroll-up 20s linear infinite;
+  animation: scroll-up 20s linear infinite;
+ }
+ /* Move it (define the animation) */
+ @-moz-keyframes scroll-up {
+  0%   { -moz-transform: translateY(100%); }
+  100% { -moz-transform: translateY(-100%); }
+ }
+ @-webkit-keyframes scroll-up {
+  0%   { -webkit-transform: translateY(100%); }
+  100% { -webkit-transform: translateY(-100%); }
+ }
+ @keyframes scroll-up {
+  0%   {
+  -moz-transform: translateY(100%); /* Browser bug fix */
+  -webkit-transform: translateY(100%); /* Browser bug fix */
+  transform: translateY(100%);
+  }
+  100% {
+  -moz-transform: translateY(-100%); /* Browser bug fix */
+  -webkit-transform: translateY(-100%); /* Browser bug fix */
+  transform: translateY(-100%);
+  }
