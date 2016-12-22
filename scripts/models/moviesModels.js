@@ -14,11 +14,12 @@ function Movie(opts){
   this.popularity = opts.popularity;
   this.overview = opts.overview;
   this.title = opts.title;
+  this.backdrop_path = opts.backdrop_path;
 };
 
 Movie.createTable = function (){
   webDB.execute(
-      'CREATE TABLE IF NOT EXISTS movies (id INTEGER PRIMARY KEY, title VARCHAR, overview VARCHAR, popularity VARCHAR, genre_ids INTEGER, vote_count INTEGER, vote_average INTEGER, release_date DATE NOT NULL, poster_path VARCHAR, contextTitle VARCHAR, movieID VARCHAR, movieImage VARCHAR, path VARCHAR);'
+      'CREATE TABLE IF NOT EXISTS movies (id INTEGER PRIMARY KEY, title VARCHAR, overview VARCHAR, popularity VARCHAR, genre_ids INTEGER, vote_count INTEGER, vote_average INTEGER, release_date DATE NOT NULL, poster_path VARCHAR, contextTitle VARCHAR, movieID INTEGER, movieImage VARCHAR, path VARCHAR, backdrop_path VARCHAR);'
   );
 
   console.log('Successfully set up the movies table.');
@@ -26,47 +27,48 @@ Movie.createTable = function (){
 
 Movie.clearTable = function() {
   webDB.execute(
-    'DELETE FROM movies;'
+    'DROP TABLE movies;'
   );
 };
 
 Movie.prototype.insertRecord = function() {
   webDB.execute(
     [{
-      'sql': 'INSERT INTO movies (title, overview, popularity, genre_ids, vote_count, vote_average, release_date, poster_path, contextTitle, movieID, movieImage, path ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);',
-      'data': [this.title, this.overview, this.popularity, this.genre_ids, this.vote_count, this.vote_average, this.release_date, this.poster_path, this.contextTitle, this.id, this.movieImage, this.path ]
+      'sql': 'INSERT INTO movies (title, overview, popularity, genre_ids, vote_count, vote_average, release_date, poster_path, contextTitle, movieID, movieImage, path, backdrop_path ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);',
+      'data': [this.title, this.overview, this.popularity, this.genre_ids, this.vote_count, this.vote_average, this.release_date, this.poster_path, this.contextTitle, this.id, this.movieImage, this.path, this.backdrop_path ]
     }]
   );
 };
 
 // this pushes to the data table
 Movie.makeMovieObjects = function(data){
-  console.log(data);
   data.map(function(obj) {
     var movie = new Movie(obj);
-    // console.log(movie);
     movie.insertRecord();
+    if (obj){console.log('success: pushing object to table fucntion');}
   });
 };
 
-Movie.loadAll = function(rows) {
-  moviesPlaying.allMovies = rows.map(function(ele) {
-    return new Movie(ele);
-  });
-};
 
-Movie.allMoves = function(){
-
+Movie.allMovies = function(){
+  webDB.execute(
+        'SELECT * FROM movies',
+        function(rows) {
+          if (rows){console.log('Success: rows are present in table');}
+          Movie.loadAll(rows);
+        });
 };
 
 Movie.fetchAll = function (callback){
   webDB.execute(
     'SELECT * FROM movies',
     function (rows){
+
       if (rows.length) {
-        Movie.loadAll(rows);
-        // callback();
-      }else{
+        Movie.allMovies();
+      }
+
+      else{
         $.ajax({
           async: true,
           crossDomain: true,
@@ -75,30 +77,29 @@ Movie.fetchAll = function (callback){
           success: function(data, string, xhr){
 
             Movie.makeMovieObjects(data.results);
-
-            appendMoviesList();
+            Movie.allMovies();
+            if (moviesPlaying.allMovies.length){
+              console.log('Success: objects exported from table.');
+              console.log(moviesPlaying.allMovies);
+            }
+            // appendMoviesList();
             // callback();
 
-            if (data){
-              data.results.forEach(function(obj){
-                moviesPlaying.allMovies.push(new Movie(obj));
-              });
-            }
-            sortMoviesTopRating();
-            appendMoviesList();
-            appendMoviesSelection();
-            movieListRender();
-            showListRender();
-            topMovieBanner();
+            // if (data){
+            //   data.results.forEach(function(obj){
+            //     moviesPlaying.allMovies.push(new Movie(obj));
+            //   });
+            // }
+
+            // sortMoviesTopRating();
+
+            // appendMoviesSelection();
+            // movieListRender();
+            // showListRender();
+            // topMovieBanner();
           }
         });
-        webDB.execute(
-              'SELECT * FROM movies',
-              function(rows) {
-                console.log(rows);
-                Movie.loadAll(rows);
-                // callback();
-              });
+
       }
     });
 };
