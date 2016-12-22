@@ -6,6 +6,7 @@
     $('#about').hide();
     $('#main-content').hide();
     $('#movie-info').show();
+    $('#backToHome').show();
 
     Movie.fetchAll(function(movieArray){
       if (!movieArray) {
