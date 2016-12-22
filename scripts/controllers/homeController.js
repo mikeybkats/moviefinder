@@ -6,6 +6,7 @@
     window.document.title = 'Home';
     $('#about').hide();
     $('#movie-info').hide();
+    $('#backToHome').hide();
     $('#movies-list').show();
 
     next();
