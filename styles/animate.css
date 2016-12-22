@@ -1,116 +1,123 @@
-.team {
-    display: inline;
-    width: 100%;
-    margin-bottom: 20px;
-}
+      .team {
+      display: inline;
+      width: 100%;
+      margin-bottom: 12em
+  }
 
-#abtitle{
-  margin-top: 80px;
-}
-.abteam {
-    position: relative;
-    float: left;
-    width: 16.5em;
-    height: 16.5em;
-    margin: .1em .em .2em .5em;
-    display: inline;
-}
+  #abtitle {
+      margin-top: 3em;
+      margin-bottom: 3em;
+  }
 
-.caption {
-    display: none;
-    position: absolute;
+  #abouth3 {
+      color: white;
+      margin-left: .5em;
+  }
+
+  .abteam {
+      position: relative;
+      float: left;
+      width: 16.5em;
+      height: 16.5em;
+      margin: .1em 0em .2em .5em;
+      display: inline;
+  }
+
+  .caption {
+      display: none;
+      position: absolute;
       background-image: url("../assets/background.jpg");
       width: 16.5em;
       height: 16.5em;
-}
-
-#abouth3, #pabout {
-    color: #fff;
-    margin: 20px;
-}
-
-#abouth3 {
-    margin: 20px 20px 10px;
-}
-
-
-#abouth1 {
-    margin-top:200px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-}
-
-#about {
-    display: flex;
-    flex-direction: column;
-        margin-left: 15px;
-}
-
-@media (max-width: 400px) {
-    #about {
-        margin-left:1.2em;
-    }
-    .abteam {
-        position: relative;
-        float: left;
-        width: 16.5em;
-        height: 16.5em;
-        margin: 1em 2em 1em 2em;
-    }
-    .coolFooter {
-        margin-top: 8em;
-    }
-}
-
-.pscroll{
-  width: 90%;
-  height: 80%;
-  margin: auto;
-overflow: hidden;
-position: relative;
-
-}
-.abpics{
-  width: 16.5em;
-  height: 16.5em;
-}
-
-#pabout {
-  font-size: 1.2em;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  line-height: 25px;
-  text-align:center;
-  color: white;
-  /* Starting position */
-  -moz-transform:translateY(100%);
-  -webkit-transform:translateY(100%);
-  transform:translateY(100%);
-  /* Apply animation to this element */
-  -moz-animation: scroll-up 20s linear infinite;
-  -webkit-animation: scroll-up 20s linear infinite;
-  animation: scroll-up 20s linear infinite;
- }
- /* Move it (define the animation) */
- @-moz-keyframes scroll-up {
-  0%   { -moz-transform: translateY(100%); }
-  100% { -moz-transform: translateY(-100%); }
- }
- @-webkit-keyframes scroll-up {
-  0%   { -webkit-transform: translateY(100%); }
-  100% { -webkit-transform: translateY(-100%); }
- }
- @keyframes scroll-up {
-  0%   {
-  -moz-transform: translateY(100%); /* Browser bug fix */
-  -webkit-transform: translateY(100%); /* Browser bug fix */
-  transform: translateY(100%);
   }
-  100% {
-  -moz-transform: translateY(-100%); /* Browser bug fix */
-  -webkit-transform: translateY(-100%); /* Browser bug fix */
-  transform: translateY(-100%);
+
+  #abouth1 {
+      margin-top: em;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
   }
+
+  #about {
+      display: flex;
+      flex-direction: column;
+      margin-left: 6.5em;
+  }
+
+  @media (max-width: 400px) {
+      #about {
+          margin-left: 1.2em;
+      }
+      .abteam {
+          position: relative;
+          float: left;
+          width: 16.5em;
+          height: 16.5em;
+          margin: 1em 2em 1em 2em;
+      }
+      .coolFooter {
+          margin-top: 8em;
+      }
+  }
+
+  .pscroll {
+      width: 90%;
+      height: 80%;
+      margin: auto;
+      overflow: hidden;
+      position: relative;
+  }
+
+  .abpics {
+      width: 16.5em;
+      height: 16.5em;
+  }
+
+  #pabout {
+      font-size: 1.2em;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      line-height: 25px;
+      text-align: center;
+      color: white;
+      /* Starting position */
+      -moz-transform: translateY(100%);
+      -webkit-transform: translateY(100%);
+      transform: translateY(100%);
+      /* Apply animation to this element */
+      -moz-animation: scroll-up 15s linear infinite;
+      -webkit-animation: scroll-up 15s linear infinite;
+      animation: scroll-up 15s linear infinite;
+  }
+
+  @-moz-keyframes scroll-up {
+      0% {
+          -moz-transform: translateY(100%);
+      }
+      100% {
+          -moz-transform: translateY(-100%);
+      }
+  }
+
+  @-webkit-keyframes scroll-up {
+      0% {
+          -webkit-transform: translateY(100%);
+      }
+      100% {
+          -webkit-transform: translateY(-100%);
+      }
+  }
+
+  @keyframes scroll-up {
+      0% {
+          -moz-transform: translateY(100%);
+          -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+      }
+      100% {
+          -moz-transform: translateY(-100%);
+          -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+      }
