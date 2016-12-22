@@ -1,122 +1,107 @@
 moviesPlaying = {};
 moviesPlaying.allMovies = [];
 
-moviesGenres = {};
-moviesGenres.allGenres = [];
-
 function Movie(opts){
+  this.contextTitle = opts.title.replace(/\s+/g, '').replace(/[^a-zA-Z ]/g, '');
   this.poster_path = opts.poster_path;
-  this.overview = opts.overview;
   this.release_date = opts.release_date;
   this.id = opts.id;
-  this.title = opts.title;
-  this.popularity = opts.popularity;
   this.vote_count = opts.vote_count;
-  this.vote_average = opts.vote_average;
-  this.genre_ids = opts.genre_ids[0];
   this.movieImage = 'https://image.tmdb.org/t/p/w500'+ opts.backdrop_path;
   this.path = '/movie/' + opts.title.replace(/\s+/g, '');
-  this.contextTitle = opts.title.replace(/\s+/g, '').replace(/[^a-zA-Z ]/g, '');
-
+  this.vote_average = opts.vote_average;
+  this.genre_ids = opts.genre_ids[0];
+  this.popularity = opts.popularity;
+  this.overview = opts.overview;
+  this.title = opts.title;
 };
 
-function Genre(opts){
-  this.name = opts.name;
-  this.id = opts.id;
+Movie.createTable = function (){
+  webDB.execute(
+      'CREATE TABLE IF NOT EXISTS movies (id INTEGER PRIMARY KEY, title VARCHAR, overview VARCHAR, popularity VARCHAR, genre_ids INTEGER, vote_count INTEGER, vote_average INTEGER, release_date DATE NOT NULL, poster_path VARCHAR, contextTitle VARCHAR, movieID VARCHAR, movieImage VARCHAR, path VARCHAR);'
+  );
+
+  console.log('Successfully set up the movies table.');
+};
+
+Movie.clearTable = function() {
+  webDB.execute(
+    'DELETE FROM movies;'
+  );
 };
 
 Movie.prototype.insertRecord = function() {
   webDB.execute(
     [{
-      'sql': 'INSERT INTO articles (poster path, overview, release_date, database id, title, popularity, vote count, vote average, genre ids, movie image, path, context title) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);',
-      'data': [
-        this.poster_path,
-        this.overview,
-        this.release_date,
-        this.id,
-        this.title,
-        this.popularity,
-        this.vote_count,
-        this.vote_average,
-        this.genre_ids,
-        this.movieImage,
-        this.path,
-        this.contextTitle
-      ]
+      'sql': 'INSERT INTO movies (title, overview, popularity, genre_ids, vote_count, vote_average, release_date, poster_path, contextTitle, movieID, movieImage, path ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);',
+      'data': [this.title, this.overview, this.popularity, this.genre_ids, this.vote_count, this.vote_average, this.release_date, this.poster_path, this.contextTitle, this.id, this.movieImage, this.path ]
     }]
   );
 };
 
-Movie.sendToJson = function(data){
-  var movieJSONData = JSON.stringify(data);
-  console.log(movieJSONData);
-
-  responseData.forEach(function(obj) {
+// this pushes to the data table
+Movie.makeMovieObjects = function(data){
+  console.log(data);
+  data.map(function(obj) {
     var movie = new Movie(obj);
+    // console.log(movie);
     movie.insertRecord();
   });
-    //
-    // webDB.execute(
-    //     'SELECT * FROM articles',
-    //         function(rows) {
-    //           Article.loadAll(rows);
-    //           nextFunction();
-    //         });
-
 };
 
-Movie.createTableFromLocalStorage = function(){
-  // creates an empty sql table
-    // get data from local storage
-  var data = function(){
-    data = localStorage.getItem('allMoviesData');
-    data = JSON.parse(data);
-    return data;
-  };
-  data();
-  return data;
+Movie.loadAll = function(rows) {
+  moviesPlaying.allMovies = rows.map(function(ele) {
+    return new Movie(ele);
+  });
+};
+
+Movie.allMoves = function(){
+
 };
 
 Movie.fetchAll = function (callback){
-  $.ajax({
-    async: true,
-    crossDomain: true,
-    url:'/movieapi/movie/now_playing' ,
-    method: 'GET',
-    success: function(data, string, xhr){
+  webDB.execute(
+    'SELECT * FROM movies',
+    function (rows){
+      if (rows.length) {
+        Movie.loadAll(rows);
+        // callback();
+      }else{
+        $.ajax({
+          async: true,
+          crossDomain: true,
+          url:'/movieapi/movie/now_playing' ,
+          method: 'GET',
+          success: function(data, string, xhr){
 
-      Movie.sendToJson(data.results);
+            Movie.makeMovieObjects(data.results);
 
-      if (data){
-        data.results.forEach(function(obj){
-          moviesPlaying.allMovies.push(new Movie(obj));
+            appendMoviesList();
+            // callback();
+
+            if (data){
+              data.results.forEach(function(obj){
+                moviesPlaying.allMovies.push(new Movie(obj));
+              });
+            }
+            sortMoviesTopRating();
+            appendMoviesList();
+            appendMoviesSelection();
+            movieListRender();
+            showListRender();
+            topMovieBanner();
+          }
         });
+        webDB.execute(
+              'SELECT * FROM movies',
+              function(rows) {
+                console.log(rows);
+                Movie.loadAll(rows);
+                // callback();
+              });
       }
-
-      sortMoviesTopRating();
-      appendMoviesList();
-      appendMoviesSelection();
-      movieListRender();
-      showListRender();
-      topMovieBanner();
-      // callback();
-    }
-  });
-
-  $.ajax({
-    async: true,
-    crossDomain: true,
-    url: '/movieapi/genre/movie/list',
-    method: 'GET',
-    success: function(data, string, xhr){
-      // console.log('/genre/movie/list success', data);
-      //console.log('/genre/movie/list success', data);
-      if ( data && data.genres){
-        data.genres.forEach(function(obj){
-          moviesGenres.allGenres.push(new Genre(obj));
-        });
-      }
-      // callback();
-    }
-  });
+    });
 };
+
+Movie.clearTable();
+Movie.createTable();
