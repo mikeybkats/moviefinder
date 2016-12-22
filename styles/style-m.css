@@ -25,7 +25,7 @@ button {
 
 li .movie-title {
   color: black;
-  font-size: 2em;
+  font-size: 1.3em;
   cursor: pointer;
   padding: 10px;
   line-height: 1.8em;
@@ -80,6 +80,14 @@ li .movie-title {
     width: 100%;
   }
 
+  li .movie-title {
+    color: black;
+    font-size: 2em;
+    cursor: pointer;
+    padding: 10px;
+    line-height: 1.8em;
+  }
+
   ul {
     display: flex;
     padding: 0px;
@@ -91,7 +99,6 @@ li .movie-title {
   }
 
   .movies-list {
-
     display: flex;
     align-items: center;
     align-content: center;

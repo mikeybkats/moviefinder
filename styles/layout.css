@@ -24,11 +24,11 @@
 }
 
 .topBannerHeader h1 {
-  color: white;
-  background: RGBA(0, 0, 0, .60);
-  padding: 25px 15px 25px 40px;
-  width: 50%;
-  font-size: 4em;
+    color: white;
+    background: RGBA(0, 0, 0, .60);
+    padding: 25px 40px 25px 30px;
+    width: 50%;
+    font-size: 2.5em;
 }
 
 #filters select {
@@ -45,6 +45,14 @@
   .heading-group-h1 {
     padding: .1em .1em .1em 2em;
     float: none;
+  }
+
+  .topBannerHeader h1 {
+    color: white;
+    background: RGBA(0, 0, 0, .60);
+    padding: 25px 15px 25px 40px;
+    width: 50%;
+    font-size: 4em;
   }
 
   #logo{
