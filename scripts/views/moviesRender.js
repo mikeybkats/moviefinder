@@ -34,7 +34,25 @@ function sortMoviesTopRating(){
     return parseFloat(b.vote_average) - parseFloat(a.vote_average);
   });
 };
+
 function topMovieBanner() {
   $('#topMovieBanner').css('background-image', 'url(' + moviesPlaying.allMovies[0].movieImage + ' )' );
 };
-Movie.fetchAll();
+
+Movie.loadAll = function(rows) {
+  moviesPlaying.allMovies = rows.map(function(ele) {
+    return new Movie(ele);
+  });
+  if (moviesPlaying.allMovies.length){console.log('Success: moviesPlaying.allMovies.length is true.');}
+  sortMoviesTopRating();
+  appendMoviesList();
+  appendMoviesSelection();
+  movieListRender();
+  showListRender();
+  topMovieBanner();
+
+};
+
+Movie.fetchAll(function(movieData){
+  Movie.loadAll(movieData);
+});

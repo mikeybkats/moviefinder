@@ -7,13 +7,19 @@
     $('#main-content').hide();
     $('#movie-info').show();
 
-    function showClickedMovie(){
+    Movie.fetchAll(function(movieArray){
+      if (!movieArray) {
+        console.error('failed to load the movies');
+        return;
+        // handele error
+      }
+      // do something with the movie array (aka render page)
+      console.log('boooya!', ctx);
       window.document.title = ctx.params.title;
       $('#movie-info').children().hide();
-      $('#movie-info').find('#' + ctx.params.title.replace(/[^a-zA-Z ]/g, '')).show();
-    }
+      $('#' + ctx.params.title).show();
 
-    setTimeout(showClickedMovie, 0);
+    });
 
     next();
   };
