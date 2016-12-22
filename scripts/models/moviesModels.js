@@ -45,7 +45,7 @@ Movie.makeMovieObjects = function(data){
   data.map(function(obj) {
     var movie = new Movie(obj);
     movie.insertRecord();
-    if (obj){console.log('success: pushing object to table fucntion');}
+    if (obj){console.log('Success: passing object to table function');}
   });
 };
 
@@ -82,21 +82,7 @@ Movie.fetchAll = function (callback){
               console.log('Success: objects exported from table.');
               console.log(moviesPlaying.allMovies);
             }
-            // appendMoviesList();
-            // callback();
 
-            // if (data){
-            //   data.results.forEach(function(obj){
-            //     moviesPlaying.allMovies.push(new Movie(obj));
-            //   });
-            // }
-
-            // sortMoviesTopRating();
-
-            // appendMoviesSelection();
-            // movieListRender();
-            // showListRender();
-            // topMovieBanner();
           }
         });
 
