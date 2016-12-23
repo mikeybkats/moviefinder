@@ -1,4 +1,6 @@
 # moviefinder
+### WHAT IS MOVIEFINDER?
+moviefinder is a web app that helps you find the best movie that's playing at the movie theatre. Go to the app and it tells you the #1 movie. Don't like that? Go to the next. Repeat.
 
 ### USER STORIES  
 - As a user I want to be able to find the top movies in the theatre.
