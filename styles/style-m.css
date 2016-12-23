@@ -72,9 +72,6 @@ li .movie-title {
     padding: 0px 20px 0px 15%;
   }
 
-  .movieTextContent {
-    padding: 70px;
-  }
 
   li {
     width: 100%;
@@ -100,6 +97,21 @@ li .movie-title {
 
   .movies-list {
     display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+  }
+
+  .movie-selection-content {
+    display: flex;
+    flex-direction: column;
+    max-width: 70%;
+  }
+
+  .movieTextContent {
+    display: flex;
+    padding: 70px;
+    /* max-width: 60%; */
     align-items: center;
     align-content: center;
     justify-content: center;

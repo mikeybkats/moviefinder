@@ -2,6 +2,7 @@
 <html>
 
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/styles/base.css">
@@ -16,9 +17,11 @@
         <div id={{contextTitle}} class="moviesDiv">
             <div class="movie-image" style="background: url('{{movieImage}}') 100% 0% / cover no-repeat border-box"></div>
             <div class="movieTextContent">
+              <div class="movie-selection-content">
                 <h2>{{title}}</h2>
                 <h4>Movie Finder Score: {{vote_average}} / 10</h4>
                 <p>{{overview}}</p>
+              </div>
             </div>
     </script>
 
@@ -37,6 +40,7 @@
 <body>
     <header class="site-header clearfix">
         <img src="/assets/logo.png" class="header-logo" id="logo">
+        <div class="tagline">"find the best movies playing now"</div>
         <section class="heading-group-h1">
         </section>
         <nav class="main-nav">

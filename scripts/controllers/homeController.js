@@ -3,7 +3,7 @@
   var homeController = {};
 
   homeController.reveal = function(ctx, next) {
-    window.document.title = 'Home';
+    window.document.title = 'moviefinder';
     $('#about').hide();
     $('#movie-info').hide();
     $('#backToHome').hide();

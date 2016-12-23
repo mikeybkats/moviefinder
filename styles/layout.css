@@ -31,6 +31,12 @@
     font-size: 2.5em;
 }
 
+.tagline {
+  text-align: center;
+  padding-bottom: 20px;
+  font-size: 1.3em;
+}
+
 #filters select {
   width: 90%;
   margin: .2em 5%;
