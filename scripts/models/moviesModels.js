@@ -84,7 +84,7 @@ Movie.fetchAll = function (callback){
             Movie.makeMovieObjects(data.results);
 
             Movie.allMovies(function(data){
-              callback(data)
+              callback(data);
             });
 
           }
