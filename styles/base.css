@@ -18,6 +18,20 @@ hr {
   width: 80%;
 }
 
+ul {
+  display: flex;
+  padding: 0px;
+  list-style-type: none;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+li {
+  width: 80%;
+}
+
 /*TEXT STYLES
 =======================================*/
 p {
@@ -28,6 +42,10 @@ address {
   display: inline-block;
 }
 
+h2 {
+  font-size: 3em;
+}
+
 /*LINK STYLES
 =======================================*/
 
@@ -36,10 +54,13 @@ a, a:link, a:active {
   color: white;
 }
 
+li {
+  cursor: pointer; cursor: hand;
+}
+
 a:hover, a:focus {
   color: #29506D;
-
-
+  cursor: pointer;
 }
 
 a:visited {
