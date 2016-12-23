@@ -49,6 +49,8 @@ Movie.loadAll = function(rows) {
   appendMoviesSelection();
   movieListRender();
   showListRender();
+  movieListHover();
+  buttonHover();
   topMovieBanner();
 
 };
