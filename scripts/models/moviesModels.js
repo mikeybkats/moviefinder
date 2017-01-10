@@ -15,6 +15,7 @@ function Movie(opts){
   this.overview = opts.overview;
   this.title = opts.title;
   this.backdrop_path = opts.backdrop_path;
+  this.funFunction = opts.funFunction;
 };
 
 Movie.createTable = function (){
